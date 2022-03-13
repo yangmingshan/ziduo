@@ -55,23 +55,6 @@ async function bundleModule(module) {
   if (bundledModules.has(module)) return;
   bundledModules.add(module);
 
-  if (module === 'regenerator-runtime') {
-    const filePath = require.resolve(module);
-    const destination = `dist/miniprogram_npm/${module}/index.js`;
-    // Make sure the directory already exists when write file in production build
-    await fs.copy(filePath, destination);
-
-    if (__PROD__) {
-      fs.writeFile(
-        destination,
-        // eslint-disable-next-line unicorn/no-await-expression-member
-        (await minify(await fs.readFile(filePath, 'utf8'), terserOptions)).code
-      );
-    }
-
-    return;
-  }
-
   let pkg;
   try {
     pkg = require(`${module}/package.json`);

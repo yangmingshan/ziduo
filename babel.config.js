@@ -45,8 +45,6 @@ module.exports = ({ env }) => ({
         version: runtimeVersion,
       },
     ],
-    !env('test') && '@babel/plugin-transform-regenerator',
-    !env('test') && '@babel/plugin-transform-destructuring',
     'transform-inline-environment-variables',
     [
       'module-resolver',
@@ -57,5 +55,5 @@ module.exports = ({ env }) => ({
       },
     ],
     'autocomplete-index',
-  ].filter(Boolean),
+  ],
 });
