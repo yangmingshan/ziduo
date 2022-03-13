@@ -1,23 +1,27 @@
+/* eslint-disable unicorn/prefer-module */
 'use strict';
+
+const process = require('process');
 
 const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
   root: true,
   extends: [
-    'xo/esnext',
-    require.resolve('xo/config/plugins'),
+    'xo',
+    require.resolve('xo/config/plugins.cjs'),
     'plugin:prettier/recommended',
-    'prettier/unicorn',
+    'prettier',
   ],
   ignorePatterns: ['dist', 'coverage'],
   rules: {
     'no-console': 'error',
+    'import/extensions': ['error', 'never', { json: 'always' }],
   },
   overrides: [
     {
       files: ['*.ts'],
-      extends: ['xo-typescript', 'prettier/@typescript-eslint'],
+      extends: ['xo-typescript', 'prettier'],
       parserOptions: {
         project: './tsconfig.json',
       },

@@ -1,8 +1,10 @@
+/* eslint-disable unicorn/prefer-module */
 'use strict';
 
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
+const process = require('process');
 const { spawn } = require('child_process');
 const fs = require('fs-extra');
 const chokidar = require('chokidar');
@@ -20,7 +22,7 @@ const { default: resolve } = require('@rollup/plugin-node-resolve');
 
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const __PROD__ = NODE_ENV === 'production';
-const localPath = `http://${getLocalIP()}:5000/`;
+const localPath = `http://${getLocalIP()}:3000/`;
 const publicPath = 'https://your.static.server/';
 const terserOptions = { ecma: 2015, toplevel: true, safari10: true };
 
@@ -62,6 +64,7 @@ async function bundleModule(module) {
     if (__PROD__) {
       fs.writeFile(
         destination,
+        // eslint-disable-next-line unicorn/no-await-expression-member
         (await minify(await fs.readFile(filePath, 'utf8'), terserOptions)).code
       );
     }
@@ -120,6 +123,7 @@ async function processScript(filePath) {
   }
 
   if (__PROD__) {
+    // eslint-disable-next-line unicorn/no-await-expression-member
     code = (await minify(code, terserOptions)).code;
   }
 

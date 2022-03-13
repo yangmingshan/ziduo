@@ -1,5 +1,2 @@
 coverage
 dist
-*.wxml
-*.ts
-*.js
