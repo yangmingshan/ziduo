@@ -1,0 +1,67 @@
+{
+  "name": "handle-mini",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:script": "cross-env NODE_ENV=production eslint --ext .js,.ts .",
+    "lint:style": "cross-env NODE_ENV=production stylelint \"src/**/*.less\"",
+    "type": "tsc",
+    "test": "cross-env NODE_ENV=test jest",
+    "start": "cross-env NODE_ENV=development node build.js",
+    "build": "cross-env NODE_ENV=production node build.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.1",
+    "@vue-mini/wechat": "^0.2.0",
+    "promise-polyfill": "^8.2.0",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "@types/jest": "^26.0.14",
+    "babel-jest": "^26.5.2",
+    "babel-plugin-autocomplete-index": "^0.2.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "chokidar": "^3.4.3",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.11.0",
+    "eslint-config-silent": "^0.22.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "fs-extra": "^9.0.1",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "less": "^4.1.1",
+    "lint-staged": "^10.4.2",
+    "postcss": "^8.1.2",
+    "postcss-pxtorpx-pro": "^2.0.0-beta",
+    "postcss-url": "^10.1.1",
+    "posthtml": "^0.15.1",
+    "prettier": "^2.1.2",
+    "rollup": "^2.32.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "serve": "^11.3.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-xo": "^0.20.0",
+    "stylelint-prettier": "^1.1.2",
+    "terser": "^5.6.0",
+    "typescript": "^4.0.3",
+    "xo": "^0.38.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "browserslist": [
+    "iOS >= 10",
+    "Chrome >= 66"
+  ]
+}
