@@ -159,7 +159,7 @@ async function processStyle(filePath, origin = localPath) {
     filename: path.resolve(filePath),
   });
   const { css: wxss } = await postcss()
-    .use(pxtorpx({ minPixelValue: 2, transform: (x) => x }))
+    .use(pxtorpx({ minPixelValue: 2 }))
     .use(
       url({
         url(asset) {

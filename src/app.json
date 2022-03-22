@@ -3,26 +3,7 @@
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "handle-mini"
-  },
-  "tabBar": {
-    "color": "#000",
-    "selectedColor": "#000",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "text": "Home",
-        "pagePath": "pages/home/index",
-        "iconPath": "/assets/home.png",
-        "selectedIconPath": "/assets/home-selected.png"
-      },
-      {
-        "text": "Mine",
-        "pagePath": "pages/mine/index",
-        "iconPath": "/assets/mine.png",
-        "selectedIconPath": "/assets/mine-selected.png"
-      }
-    ]
+    "navigationBarTitleText": "汉兜"
   },
   "sitemapLocation": "sitemap.json"
 }

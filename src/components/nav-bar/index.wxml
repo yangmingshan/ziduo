@@ -1,0 +1,8 @@
+<view class="icons">
+  <image class="icon" src="/assets/help.svg" />
+  <image class="icon" src="/assets/catalog.svg" />
+</view>
+<view class="icons">
+  <image class="icon" src="/assets/settings.svg" />
+  <image class="icon" src="/assets/sun.svg" />
+</view>
