@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.8",
+    "@hankit/tools": "workspace:*",
     "@vue-mini/wechat": "^0.3.0"
   },
   "devDependencies": {

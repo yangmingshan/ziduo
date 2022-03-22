@@ -44,7 +44,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.23.0",
+  "libVersion": "2.23.2",
   "appid": "wx7f862a2cd44876dd",
   "projectname": "handle-mini",
   "debugOptions": {
