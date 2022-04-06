@@ -55,6 +55,13 @@ async function bundleModule(module) {
   if (bundledModules.has(module)) return;
   bundledModules.add(module);
 
+  if (module === 'seedrandom') {
+    const filePath = require.resolve(`${module}/seedrandom.min.js`);
+    const destination = `dist/miniprogram_npm/${module}/index.js`;
+    fs.copy(filePath, destination);
+    return;
+  }
+
   let pkg;
   try {
     pkg = require(`${module}/package.json`);
