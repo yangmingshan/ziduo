@@ -1,6 +1,204 @@
-:host {
+.base {
   width: 80px;
   height: 80px;
-  border: 2px solid rgba(156,163,175,0.1);
+  box-sizing: border-box;
+  border: 2px solid rgba(156, 163, 175, 0.1);
+  position: relative;
+}
+
+.ok {
+  color: @white;
+  border: none;
+  background: @ok;
+}
+
+.normal {
+  border: none;
+  background: rgba(156, 163, 175, 0.08);
+}
+
+.char-mask {
+  background: currentcolor;
+  opacity: 0.7;
+  border: 1px solid currentcolor;
+}
+
+.tone-mask {
+  background: currentcolor;
+  opacity: 0.4;
+  border: 1px solid currentcolor;
+}
+
+.text-ok {
+  color: @ok;
+}
+
+.text-mis {
+  color: @mis;
+}
+
+.op80 {
+  opacity: 0.8;
+}
+
+.op35 {
+  opacity: 0.35;
+}
+
+.op30 {
+  opacity: 0.3;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.zy-char {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 30px;
+  line-height: 80px;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.char {
+  position: absolute;
+  left: 25px;
+  font-size: 30px;
+  line-height: 1;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.left-12 {
+  left: 12px;
+}
+
+.left-16 {
+  left: 16px;
+}
+
+.top-11 {
+  top: 11px;
+}
+
+.top-14 {
+  top: 14px;
+}
+
+.top-32 {
+  top: 32px;
+}
+
+.top-34 {
+  top: 34px;
+}
+
+.zy-tone {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 100%;
   display: flex;
+  align-items: center;
+}
+
+.zy {
+  font-size: 12px;
+  line-height: 16px;
+  writing-mode: vertical-rl;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.tone {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+
+.two {
+  position: relative;
+}
+
+.zy-symbol-1 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+}
+
+.zy-symbol-2 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+  transform: rotate(135deg);
+}
+
+.zy-symbol-3 {
+  width: 4px;
+  height: 4px;
+  border-right: 1px solid currentcolor;
+  border-bottom: 1px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+.zy-symbol-4 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+  transform: rotate(45deg);
+}
+
+.symbol-1 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.symbol-2 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%) rotate(135deg);
+}
+
+.symbol-3 {
+  width: 4px;
+  height: 4px;
+  border-right: 1px solid currentcolor;
+  border-bottom: 1px solid currentcolor;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.symbol-4 {
+  width: 6px;
+  height: 1px;
+  background: currentcolor;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.num-tone {
+  align-self: flex-start;
+  font-size: 12px;
+  line-height: 1;
+  margin-top: -4px;
+  margin-left: 2px;
 }

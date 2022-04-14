@@ -5,7 +5,7 @@ import { useStorage } from './composables/storage';
 import { dayNo } from './state';
 import type { InputMode, TriesMeta } from './logic';
 
-export const history = useStorage<Record<number, TriesMeta>>(
+export const records = useStorage<Record<number, TriesMeta>>(
   'handle-tries-meta',
   {}
 );
@@ -17,11 +17,11 @@ export const useCheckAssist = useStorage('handle-check-assist', false);
 
 export const meta = computed<TriesMeta>({
   get() {
-    if (!(dayNo.value in history.value)) history.value[dayNo.value] = {};
-    return history.value[dayNo.value];
+    if (!(dayNo.value in records.value)) records.value[dayNo.value] = {};
+    return records.value[dayNo.value];
   },
   set(v) {
-    history.value[dayNo.value] = v;
+    records.value[dayNo.value] = v;
   },
 });
 
