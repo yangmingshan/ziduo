@@ -45,6 +45,11 @@ module.exports = ({ env }) => ({
         version: runtimeVersion,
       },
     ],
+    /* Wechat devtools do not support the following syntax */
+    '@babel/plugin-proposal-numeric-separator',
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator',
+    /*******************************************************/
     'transform-inline-environment-variables',
     [
       'module-resolver',

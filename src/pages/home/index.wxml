@@ -1,5 +1,5 @@
 <nav-bar />
-<char-block
-  answer="{{ {char: 'exact', tone: 'exact', _1: 'exact', _2: 'exact', _3: 'exact'} }}"
-  char="{{ {char: '隆', _1: 'ㄌ', _2: 'ㄨ', _3: 'ㄥ', tone: 2, yin: 'long', parts: ['ㄌ', 'ㄨ', 'ㄥ']} }}"
-/>
+<word-blocks word="班门弄斧" revealed="{{ true }}" answer=" 门  " />
+<word-blocks word="水落石出" revealed="{{ true }}" answer="一一一水" />
+<word-blocks word="巧夺天工" revealed="{{ true }}" answer="桥它拖 " />
+<word-blocks word="武运昌隆" revealed="{{ true }}" answer="武运昌隆" />

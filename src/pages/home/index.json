@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "nav-bar": "/components/nav-bar/index",
-    "char-block": "/components/char-block/index"
+    "word-blocks": "/components/word-blocks/index"
   }
 }

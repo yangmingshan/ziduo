@@ -12,7 +12,8 @@ defineComponent({
   setup(props: { char: ParsedChar; answer: MatchResult; active: boolean }) {
     const exact = computed(
       () =>
-        props.answer && Object.values(props.answer).every((i) => i === 'exact')
+        Boolean(props.answer) &&
+        Object.values(props.answer).every((i) => i === 'exact')
     );
 
     const parsed = computed(() => {

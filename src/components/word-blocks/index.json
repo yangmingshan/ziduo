@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "char-block": "../char-block/index"
+  }
+}
