@@ -1,0 +1,30 @@
+<word-blocks
+  class="word"
+  wx:for="{{ tries }}"
+  wx:key="index"
+  word="{{ item }}"
+  revealed="{{ true }}"
+/>
+<word-blocks
+  class="word"
+  word="{{ input || '' }}"
+  active="{{ true }}"
+  answer=""
+/>
+<view class="input-box">
+  <input
+    class="input"
+    value="{{ input }}"
+    placeholder="输入四字词语..."
+    bind:input="onInput"
+    bind:confirm="onConfirm"
+  />
+</view>
+<button
+  class="btn {{ disabled ? 'disabled' : '' }}"
+  hover-class="active"
+  disabled="{{ disabled }}"
+  bind:tap="onConfirm"
+>
+  确 定
+</button>

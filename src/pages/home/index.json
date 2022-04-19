@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "nav-bar": "/components/nav-bar/index",
-    "word-blocks": "/components/word-blocks/index"
+    "han-play": "/components/han-play/index"
   }
 }

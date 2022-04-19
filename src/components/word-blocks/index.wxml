@@ -1,4 +1,8 @@
-<view class="tile {{ flip ? 'revealed' : '' }}" wx:for="{{ parsed }}">
+<view
+  class="tile {{ flip ? 'revealed' : '' }}"
+  wx:for="{{ parsed }}"
+  wx:key="index"
+>
   <block wx:if="{{ animate }}">
     <char-block
       class="front"
@@ -9,14 +13,14 @@
     <char-block
       class="back"
       char="{{ item }}"
-      answer="{{ result[index] }}"
+      answer="{{ result[index] || null }}"
       style="transition-delay: {{ index * 325 }}ms; animation-delay: {{ index * 125 }}ms;"
     />
   </block>
   <char-block
     wx:else
     char="{{ item }}"
-    answer="{{ result[index] }}"
+    answer="{{ result[index] || null }}"
     active="{{ active }}"
   />
 </view>

@@ -32,9 +32,11 @@ defineComponent({
       return [];
     });
 
-    const parsed = parseWord(
-      props.word.padEnd(WORD_LENGTH, ' '),
-      props.answer || todayAnswer.value.word
+    const parsed = computed(() =>
+      parseWord(
+        props.word.padEnd(WORD_LENGTH, ' '),
+        props.answer || todayAnswer.value.word
+      )
     );
 
     onReady(() => {

@@ -14,6 +14,7 @@ export const inputMode = useStorage<InputMode>('handle-mode', 'py');
 export const spMode = useStorage<SpMode>('handle-sp-mode', 'sougou');
 export const useNumberTone = useStorage('handle-number-tone', false);
 export const useCheckAssist = useStorage('handle-check-assist', false);
+export const useStrictMode = useStorage('handle-strict', false);
 
 export const meta = computed<TriesMeta>({
   get() {
@@ -34,3 +35,10 @@ export const tries = computed<string[]>({
     meta.value.tries = v;
   },
 });
+
+export function markStart() {
+  if (meta.value.end) return;
+  if (!meta.value.start) {
+    meta.value.start = Date.now();
+  }
+}
