@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed } from '@vue-mini/wechat';
 import { filterNonChineseChars } from '@hankit/tools';
-import { markStart, meta, tries, useStrictMode } from '@/storage';
+import { markStart, meta, tries, useNoHint, useStrictMode } from '@/storage';
 import { WORD_LENGTH } from '@/logic';
 
 defineComponent(() => {
@@ -24,6 +24,7 @@ defineComponent(() => {
 
   return {
     tries,
+    useNoHint,
     input,
     disabled,
     onInput,

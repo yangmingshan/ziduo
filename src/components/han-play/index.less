@@ -22,6 +22,7 @@
 }
 
 .btn {
+  margin-bottom: 24px;
   width: fit-content;
   height: 40px;
   padding: 0 24px;
@@ -44,4 +45,54 @@
 
 .active {
   opacity: 1;
+}
+
+.help {
+  display: flex;
+  justify-content: center;
+}
+
+.hint,
+.cheatsheet {
+  opacity: 0.75;
+  padding-left: 22px;
+  font-size: 16px;
+  position: relative;
+}
+
+.hint-active,
+.cheatsheet-active {
+  opacity: 1;
+  color: @primary;
+}
+
+.hint {
+  margin-right: 16px;
+}
+
+.hint::before,
+.cheatsheet::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background-size: 100% 100%;
+}
+
+.hint::before {
+  background-image: url('/assets/idea.svg');
+}
+
+.cheatsheet::before {
+  background-image: url('/assets/grid.svg');
+}
+
+.hint-active::before {
+  background-image: url('/assets/idea-teal.svg');
+}
+
+.cheatsheet-active::before {
+  background-image: url('/assets/grid-teal.svg');
 }

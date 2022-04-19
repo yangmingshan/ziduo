@@ -12,6 +12,7 @@ export const records = useStorage<Record<number, TriesMeta>>(
 
 export const inputMode = useStorage<InputMode>('handle-mode', 'py');
 export const spMode = useStorage<SpMode>('handle-sp-mode', 'sougou');
+export const useNoHint = useStorage('handle-hard-mode', false);
 export const useNumberTone = useStorage('handle-number-tone', false);
 export const useCheckAssist = useStorage('handle-check-assist', false);
 export const useStrictMode = useStorage('handle-strict', false);

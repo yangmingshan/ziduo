@@ -28,3 +28,9 @@
 >
   确 定
 </button>
+<view class="help">
+  <view wx:if="{{ !useNoHint }}" class="hint" hover-class="hint-active">
+    提示
+  </view>
+  <view class="cheatsheet" hover-class="cheatsheet-active">速查表</view>
+</view>
