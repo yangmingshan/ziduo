@@ -29,7 +29,12 @@
   确 定
 </button>
 <view class="help">
-  <view wx:if="{{ !useNoHint }}" class="hint" hover-class="hint-active">
+  <view
+    wx:if="{{ !useNoHint }}"
+    class="hint"
+    hover-class="hint-active"
+    bind:tap="openHint"
+  >
     提示
   </view>
   <view class="cheatsheet" hover-class="cheatsheet-active">速查表</view>

@@ -1,5 +1,6 @@
 import { defineComponent, ref, computed } from '@vue-mini/wechat';
 import { filterNonChineseChars } from '@hankit/tools';
+import { showHint } from '@/state';
 import { markStart, meta, tries, useNoHint, useStrictMode } from '@/storage';
 import { WORD_LENGTH } from '@/logic';
 
@@ -22,6 +23,15 @@ defineComponent(() => {
     input.value = '';
   };
 
+  const openHint = () => {
+    meta.value.hint = true;
+    if (!meta.value.hintLevel) {
+      meta.value.hintLevel = 1;
+    }
+
+    showHint.value = true;
+  };
+
   return {
     tries,
     useNoHint,
@@ -29,5 +39,6 @@ defineComponent(() => {
     disabled,
     onInput,
     onConfirm,
+    openHint,
   };
 });

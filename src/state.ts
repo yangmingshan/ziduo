@@ -7,6 +7,7 @@ import {
   parseWord as _parseWord,
   testAnswer as _testAnswer,
   isDstObserved,
+  numberToHanzi,
 } from './logic';
 // eslint-disable-next-line import/no-cycle
 import {
@@ -18,6 +19,7 @@ import {
 import { getAnswerOfDay } from './answers';
 
 export const now = useNow();
+export const showHint = ref(false);
 export const useMask = ref(false);
 
 export const useNumberTone = computed(() => {
@@ -34,8 +36,10 @@ export const daySince = computed(() => {
   return Math.floor((Number(adjustedNow) - Number(START_DATE)) / 86_400_000);
 });
 export const dayNo = ref(daySince.value);
+export const dayNoHanzi = computed(() => `${numberToHanzi(dayNo.value)}日`);
 export const answer = computed(() => getAnswerOfDay(dayNo.value));
 
+export const hint = computed(() => answer.value.hint);
 export const parsedAnswer = computed(() => parseWord(answer.value.word));
 
 export function parseWord(
@@ -80,6 +84,7 @@ export function getSymbolState(
       }
     }
   }
+
   if (results.includes('exact')) return 'exact';
   if (results.includes('misplaced')) return 'misplaced';
   if (results.includes('none')) return 'none';

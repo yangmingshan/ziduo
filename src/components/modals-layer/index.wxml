@@ -1,0 +1,3 @@
+<han-modal wx:if="{{ showHint }}" bind:close="closeHint">
+  <han-hint />
+</han-modal>

@@ -4,3 +4,4 @@
 <word-blocks word="巧夺天工" revealed="{{ true }}" answer="桥它拖 " />
 <word-blocks word="武运昌隆" revealed="{{ true }}" answer="武运昌隆" /> -->
 <han-play />
+<modals-layer />

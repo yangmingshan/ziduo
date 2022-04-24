@@ -27,6 +27,7 @@ export function parsePinyin(
       parts = [one, rest].filter(Boolean) as string[];
     }
   }
+
   return parts;
 }
 
@@ -37,11 +38,11 @@ export function parseChar(
   spMode?: SpMode
 ): ParsedChar {
   if (!pinyin) pinyin = getPinyin(char)[0];
-  const tone = pinyin.match(/\d$/)?.[0] ?? '';
+  const tone = /\d$/.exec(pinyin)?.[0] ?? '';
   if (tone) pinyin = pinyin.slice(0, -tone.length).trim();
 
   const parts = parsePinyin(pinyin, mode, spMode);
-  // if there is no final, actually it's no intital
+  // If there is no final, actually it's no intital
   if (parts[0] && !parts[1]) {
     parts[1] = parts[0];
     parts[0] = '';
@@ -72,7 +73,7 @@ export function parseWord(
 
   return chars.map((char, i): ParsedChar => {
     let pinyin = pinyins[i] || '';
-    // try match the pinyin from the answer word
+    // Try match the pinyin from the answer word
     if (answerPinyin && answer && answer.includes(char))
       pinyin = answerPinyin[answer.indexOf(char)] || pinyin;
     return parseChar(char, pinyin, mode, spMode);
@@ -96,7 +97,7 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
     parts: answer
       .flatMap((a, i) => a.parts.filter((p) => !input[i].parts.includes(p)))
       // eslint-disable-next-line eqeqeq, no-eq-null
-      .filter((i) => i != null) as string[],
+      .filter((i) => i != null),
   };
 
   function includesAndRemove<T>(array: T[], v: T) {
@@ -104,6 +105,7 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
       array.splice(array.indexOf(v), 1);
       return true;
     }
+
     return false;
   }
 
@@ -146,6 +148,25 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
 
 export function getHint(word: string) {
   return word[Math.floor(seedrandom(word)() * word.length)];
+}
+
+const numberChar = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+const tens = ['', '十', '百', '千'];
+
+export function numberToHanzi(number: number) {
+  const digits = [...number.toString()].map((i) => Number(i));
+  const chars = digits.map((i, idx) => {
+    const unit = i === 0 ? '' : tens[digits.length - 1 - idx];
+    return numberChar[i] + unit;
+  });
+
+  return chars
+    .join('')
+    .replace('一十', '十')
+    .replace('一百', '百')
+    .replace('二十', '廿')
+    .replace(/零+/, '零')
+    .replace(/(.)零$/, '$1');
 }
 
 /**

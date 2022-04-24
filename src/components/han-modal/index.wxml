@@ -1,0 +1,4 @@
+<view class="mask" bind:tap="close" />
+<view class="modal {{ show ? 'show' : '' }}">
+  <slot />
+</view>

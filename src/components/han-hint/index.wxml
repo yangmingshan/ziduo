@@ -1,0 +1,14 @@
+<view class="day">{{ dayNoHanzi }}</view>
+<view class="answer">
+  <text>答案包含以下</text>
+  <text class="answer-text">{{ level2 ? ' 汉字' : ' 字音' }}</text>
+</view>
+<char-block class="hint" char="{{ level2 ? parsed : masked }}" />
+<button
+  wx:if="{{ !level2 }}"
+  class="btn"
+  hover-class="active"
+  bind:tap="goFurther"
+>
+  进一步提示
+</button>

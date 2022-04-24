@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "han-modal": "../han-modal/index",
+    "han-hint": "../han-hint/index"
+  }
+}

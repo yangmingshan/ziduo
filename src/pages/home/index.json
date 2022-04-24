@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "nav-bar": "/components/nav-bar/index",
-    "han-play": "/components/han-play/index"
+    "han-play": "/components/han-play/index",
+    "modals-layer": "/components/modals-layer/index"
   }
 }
