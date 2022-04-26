@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed } from '@vue-mini/wechat';
 import { filterNonChineseChars } from '@hankit/tools';
-import { showHint } from '@/state';
+import { showHint, showCheatSheet } from '@/state';
 import { markStart, meta, tries, useNoHint, useStrictMode } from '@/storage';
 import { WORD_LENGTH } from '@/logic';
 
@@ -32,6 +32,10 @@ defineComponent(() => {
     showHint.value = true;
   };
 
+  const openSheet = () => {
+    showCheatSheet.value = true;
+  };
+
   return {
     tries,
     useNoHint,
@@ -40,5 +44,6 @@ defineComponent(() => {
     onInput,
     onConfirm,
     openHint,
+    openSheet,
   };
 });

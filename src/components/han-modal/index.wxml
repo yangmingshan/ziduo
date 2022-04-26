@@ -1,4 +1,10 @@
 <view class="mask" bind:tap="close" />
 <view class="modal {{ show ? 'show' : '' }}">
   <slot />
+  <view
+    wx:if="{{ showClose }}"
+    class="close"
+    hover-class="close-active"
+    bind:tap="close"
+  />
 </view>

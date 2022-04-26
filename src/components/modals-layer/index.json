@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "han-modal": "../han-modal/index",
-    "han-hint": "../han-hint/index"
+    "han-hint": "../han-hint/index",
+    "cheat-sheet": "../cheat-sheet/index"
   }
 }

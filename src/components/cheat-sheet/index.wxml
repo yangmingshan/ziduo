@@ -1,0 +1,15 @@
+<view class="title">拼音速查表</view>
+<view class="py">
+  <view class="sub-title">声母</view>
+  <view class="sub-title">韵母</view>
+  <view class="py-initials">
+    <view wx:for="{{ pyInitials }}" wx:key="s" class="{{ item.c }}">
+      {{ item.s }}
+    </view>
+  </view>
+  <view class="py-finals">
+    <view wx:for="{{ pyFinals }}" wx:key="s" class="{{ item.c }}">
+      {{ item.s }}
+    </view>
+  </view>
+</view>

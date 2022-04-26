@@ -37,5 +37,7 @@
   >
     提示
   </view>
-  <view class="cheatsheet" hover-class="cheatsheet-active">速查表</view>
+  <view class="cheatsheet" hover-class="cheatsheet-active" bind:tap="openSheet">
+    速查表
+  </view>
 </view>

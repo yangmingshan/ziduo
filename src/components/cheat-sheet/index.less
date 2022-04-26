@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 32px 32px;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.py {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 40px;
+  row-gap: 16px;
+}
+
+.sub-title {
+  text-align: center;
+}
+
+.py-initials,
+.py-finals {
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}
+
+.py-initials {
+  grid-template-columns: 1fr 1fr;
+}
+
+.py-finals {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.text-ok {
+  color: @ok;
+}
+
+.text-mis {
+  color: @mis;
+}
+
+.op-30 {
+  opacity: 0.3;
+}
