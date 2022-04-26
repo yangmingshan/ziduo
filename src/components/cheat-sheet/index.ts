@@ -1,5 +1,11 @@
 import { defineComponent, computed } from '@vue-mini/wechat';
-import { pinyinFinals, pinyinInitials } from '@hankit/tools';
+import {
+  getShuangpinConstants,
+  pinyinFinals,
+  pinyinInitials,
+  zhuyinSymbols,
+} from '@hankit/tools';
+import { inputMode, spMode } from '@/storage';
 import { getSymbolState } from '@/state';
 
 defineComponent(() => {
@@ -22,8 +28,24 @@ defineComponent(() => {
     pinyinFinals.map((s) => ({ s: s.replace('v', 'ü'), c: getSymbolClass(s) }))
   );
 
+  const zySymbols = computed(() =>
+    zhuyinSymbols.map((s) => ({ s, c: getSymbolClass(s) }))
+  );
+
+  const spConstants = computed(() => {
+    const { initials, finals } = getShuangpinConstants(spMode.value);
+
+    return {
+      initials: initials.map((s) => ({ s, c: getSymbolClass(s, '_1') })),
+      finals: finals.map((s) => ({ s, c: getSymbolClass(s, '_2') })),
+    };
+  });
+
   return {
+    inputMode,
     pyInitials,
     pyFinals,
+    zySymbols,
+    spConstants,
   };
 });
