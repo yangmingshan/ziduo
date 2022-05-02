@@ -1,9 +1,13 @@
-import { defineComponent, ref } from '@vue-mini/wechat';
+import { defineComponent } from '@vue-mini/wechat';
+import { showHelp, useMask } from '@/state';
 
 defineComponent(() => {
-  const greeting = ref('Welcome to Vue Mini');
+  const openHelp = () => {
+    showHelp.value = true;
+    useMask.value = false;
+  };
 
   return {
-    greeting,
+    openHelp,
   };
 });

@@ -1,8 +1,8 @@
 <view class="icons">
-  <image class="icon" src="/assets/help.svg" />
-  <image class="icon" src="/assets/catalog.svg" />
+  <view class="help" hover-class="help-active" bind:tap="openHelp" />
+  <view class="dashboard" hover-class="dashboard-active" />
 </view>
 <view class="icons">
-  <image class="icon" src="/assets/settings.svg" />
-  <image class="icon" src="/assets/sun.svg" />
+  <view class="settings" hover-class="settings-active" />
+  <view class="theme" hover-class="theme-active" />
 </view>

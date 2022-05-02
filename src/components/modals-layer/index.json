@@ -2,6 +2,7 @@
   "usingComponents": {
     "han-modal": "../han-modal/index",
     "han-hint": "../han-hint/index",
-    "cheat-sheet": "../cheat-sheet/index"
+    "cheat-sheet": "../cheat-sheet/index",
+    "welcome-page": "../welcome-page/index"
   }
 }

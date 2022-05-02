@@ -1,10 +1,27 @@
-<han-modal wx:if="{{ showHint }}" bind:close="closeHint">
+<han-modal
+  wx:if="{{ showHint }}"
+  show="{{ show }}"
+  bind:show="onShow"
+  bind:close="closeHint"
+>
   <han-hint />
 </han-modal>
 <han-modal
   wx:if="{{ showCheatSheet }}"
+  show="{{ show }}"
   showClose="{{ true }}"
+  bind:show="onShow"
   bind:close="closeCheatSheet"
 >
   <cheat-sheet />
+</han-modal>
+
+<han-modal
+  wx:if="{{ showHelp }}"
+  show="{{ show }}"
+  showClose="{{ initialized }}"
+  bind:show="onShow"
+  bind:close="closeHelp"
+>
+  <welcome-page bind:close="closeHelp" />
 </han-modal>

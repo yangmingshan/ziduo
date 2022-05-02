@@ -5,10 +5,12 @@ import { useStorage } from './composables/storage';
 import { dayNo } from './state';
 import type { InputMode, TriesMeta } from './logic';
 
+// `history` is a reserved word in miniprogram
 export const records = useStorage<Record<number, TriesMeta>>(
   'handle-tries-meta',
   {}
 );
+export const initialized = useStorage('handle-initialized', false);
 
 export const inputMode = useStorage<InputMode>('handle-mode', 'py');
 export const spMode = useStorage<SpMode>('handle-sp-mode', 'sougou');

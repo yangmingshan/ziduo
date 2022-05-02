@@ -1,25 +1,20 @@
-import { defineComponent, ref, onReady } from '@vue-mini/wechat';
+import { defineComponent, onReady } from '@vue-mini/wechat';
 
 defineComponent({
   properties: {
+    show: Boolean,
     showClose: Boolean,
   },
   setup(_, context) {
-    const show = ref(false);
-
     const close = () => {
-      show.value = false;
-      setTimeout(() => {
-        context.triggerEvent('close');
-      }, 200);
+      context.triggerEvent('close');
     };
 
     onReady(() => {
-      show.value = true;
+      context.triggerEvent('show');
     });
 
     return {
-      show,
       close,
     };
   },
