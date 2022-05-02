@@ -22,6 +22,7 @@ export const now = useNow();
 export const showHint = ref(false);
 export const showSettings = ref(false);
 export const showHelp = ref(false);
+export const showDashboard = ref(false);
 export const showCheatSheet = ref(false);
 export const useMask = ref(false);
 

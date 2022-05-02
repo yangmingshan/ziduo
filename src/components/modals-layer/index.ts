@@ -1,5 +1,11 @@
 import { defineComponent, ref } from '@vue-mini/wechat';
-import { showHelp, showSettings, showHint, showCheatSheet } from '@/state';
+import {
+  showHelp,
+  showDashboard,
+  showSettings,
+  showHint,
+  showCheatSheet,
+} from '@/state';
 import { initialized } from '@/storage';
 
 defineComponent(() => {
@@ -19,6 +25,12 @@ defineComponent(() => {
   const closeHelp = () => {
     onClose(() => {
       showHelp.value = false;
+    });
+  };
+
+  const closeDashboard = () => {
+    onClose(() => {
+      showDashboard.value = false;
     });
   };
 
@@ -42,6 +54,7 @@ defineComponent(() => {
 
   return {
     showHelp,
+    showDashboard,
     showSettings,
     showHint,
     showCheatSheet,
@@ -49,6 +62,7 @@ defineComponent(() => {
     show,
     onShow,
     closeHint,
+    closeDashboard,
     closeSettings,
     closeCheatSheet,
     closeHelp,

@@ -66,3 +66,42 @@ export function markStart() {
     meta.value.start = Date.now();
   }
 }
+
+export const gamesCount = computed(
+  () =>
+    Object.values(records.value).filter((m) =>
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+      Boolean(m.passed || m.answer || m.failed)
+    ).length
+);
+export const passedTries = computed(() =>
+  Object.values(records.value).filter((m) => Boolean(m.passed))
+);
+export const passedCount = computed(() => passedTries.value.length);
+export const noHintPassedCount = computed(
+  () =>
+    Object.values(records.value).filter((m) => Boolean(m.passed && !m.hint))
+      .length
+);
+export const historyTriesCount = computed(() =>
+  Object.values(records.value)
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+    .filter((m) => m.passed || m.answer || m.failed)
+    .map((m) => m.tries?.length ?? 0)
+    .reduce((a, b) => a + b, 0)
+);
+export const averageDurations = computed(() => {
+  const items = Object.values(records.value).filter(
+    (m) => m.passed && m.duration
+  );
+  if (items.length === 0) return 0;
+  const durations = items.map((m) => m.duration!).reduce((a, b) => a + b, 0);
+  return formatDuration(durations / items.length);
+});
+
+function formatDuration(duration: number) {
+  const ts = duration / 1000;
+  const m = Math.floor(ts / 60);
+  const s = Math.floor(ts % 60);
+  return m ? `${m}分${s}秒` : `${s}秒`;
+}

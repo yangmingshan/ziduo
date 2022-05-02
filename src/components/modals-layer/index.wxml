@@ -25,6 +25,15 @@
   <welcome-page bind:close="closeHelp" />
 </han-modal>
 <han-modal
+  wx:if="{{ showDashboard }}"
+  show="{{ show }}"
+  showClose="{{ true }}"
+  bind:show="onShow"
+  bind:close="closeDashboard"
+>
+  <dash-board />
+</han-modal>
+<han-modal
   wx:if="{{ showSettings }}"
   show="{{ show }}"
   bind:show="onShow"
