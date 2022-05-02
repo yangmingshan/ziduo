@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "word-blocks": "../word-blocks/index"
+    "word-blocks": "../word-blocks/index",
+    "han-settings": "../han-settings/index"
   }
 }

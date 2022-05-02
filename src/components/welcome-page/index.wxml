@@ -39,3 +39,5 @@
 <view class="divider" />
 <button class="btn" hover-class="active" bind:tap="onStart">开始游戏</button>
 <view class="text-center op-50">* 新题目每日零时更新</view>
+<view class="divider" />
+<han-settings class="settings" lite="{{ true }}" />

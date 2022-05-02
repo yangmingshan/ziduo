@@ -15,7 +15,6 @@
 >
   <cheat-sheet />
 </han-modal>
-
 <han-modal
   wx:if="{{ showHelp }}"
   show="{{ show }}"
@@ -24,4 +23,12 @@
   bind:close="closeHelp"
 >
   <welcome-page bind:close="closeHelp" />
+</han-modal>
+<han-modal
+  wx:if="{{ showSettings }}"
+  show="{{ show }}"
+  bind:show="onShow"
+  bind:close="closeSettings"
+>
+  <han-settings />
 </han-modal>

@@ -5,6 +5,19 @@ import { useStorage } from './composables/storage';
 import { dayNo } from './state';
 import type { InputMode, TriesMeta } from './logic';
 
+let language = '';
+try {
+  language = wx.getSystemInfoSync().language.toLowerCase();
+} catch {}
+
+const preferTraditional =
+  language.includes('zh') &&
+  (language.includes('hk') ||
+    language.includes('mo') ||
+    language.includes('tw') ||
+    language.includes('hant'));
+const preferZhuyin = language.includes('zh') && language.includes('tw');
+
 // `history` is a reserved word in miniprogram
 export const records = useStorage<Record<number, TriesMeta>>(
   'handle-tries-meta',
@@ -12,8 +25,16 @@ export const records = useStorage<Record<number, TriesMeta>>(
 );
 export const initialized = useStorage('handle-initialized', false);
 
-export const inputMode = useStorage<InputMode>('handle-mode', 'py');
+export const locale = useStorage<'hans' | 'hant'>(
+  'handle-locale',
+  preferTraditional ? 'hant' : 'hans'
+);
+export const inputMode = useStorage<InputMode>(
+  'handle-mode',
+  preferZhuyin ? 'zy' : 'py'
+);
 export const spMode = useStorage<SpMode>('handle-sp-mode', 'sougou');
+export const colorblind = useStorage('handle-colorblind', false);
 export const useNoHint = useStorage('handle-hard-mode', false);
 export const useNumberTone = useStorage('handle-number-tone', false);
 export const useCheckAssist = useStorage('handle-check-assist', false);

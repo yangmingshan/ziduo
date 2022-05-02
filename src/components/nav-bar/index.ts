@@ -1,5 +1,5 @@
 import { defineComponent } from '@vue-mini/wechat';
-import { showHelp, useMask } from '@/state';
+import { showHelp, useMask, showSettings } from '@/state';
 
 defineComponent(() => {
   const openHelp = () => {
@@ -7,7 +7,12 @@ defineComponent(() => {
     useMask.value = false;
   };
 
+  const openSettings = () => {
+    showSettings.value = true;
+  };
+
   return {
     openHelp,
+    openSettings,
   };
 });
