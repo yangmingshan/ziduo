@@ -146,6 +146,10 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
   });
 }
 
+export function checkPass(result: MatchResult[]) {
+  return result.every((r) => r.char === 'exact');
+}
+
 export function getHint(word: string) {
   return word[Math.floor(seedrandom(word)() * word.length)];
 }

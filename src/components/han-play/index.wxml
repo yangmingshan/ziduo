@@ -6,38 +6,56 @@
   revealed="{{ true }}"
 />
 <word-blocks
+  wx:if="{{ !isFinished }}"
   class="word"
   word="{{ input || '' }}"
   active="{{ true }}"
   answer=""
 />
-<view class="input-box">
-  <input
-    class="input"
-    value="{{ input }}"
-    placeholder="输入四字词语..."
-    bind:input="onInput"
-    bind:confirm="onConfirm"
-  />
-</view>
-<button
-  class="btn {{ disabled ? 'disabled' : '' }}"
-  hover-class="active"
-  disabled="{{ disabled }}"
-  bind:tap="onConfirm"
->
-  确 定
-</button>
-<view class="help">
-  <view
-    wx:if="{{ !useNoHint }}"
-    class="hint"
-    hover-class="hint-active"
-    bind:tap="openHint"
+<block wx:if="{{ !isFinished }}">
+  <view class="input-box">
+    <input
+      class="input"
+      value="{{ input }}"
+      placeholder="输入四字词语..."
+      bind:input="onInput"
+      bind:confirm="onConfirm"
+    />
+  </view>
+  <button
+    class="btn {{ disabled ? 'disabled' : '' }}"
+    hover-class="active"
+    disabled="{{ disabled }}"
+    bind:tap="onConfirm"
   >
-    提示
+    确 定
+  </button>
+  <view wx:if="{{ tries.length > 4 && !isFailed }}" class="rest">
+    剩余 {{ rest }} 次机会
   </view>
-  <view class="cheatsheet" hover-class="cheatsheet-active" bind:tap="openSheet">
-    速查表
+  <view class="help">
+    <view
+      wx:if="{{ !useNoHint }}"
+      class="hint"
+      hover-class="hint-active"
+      bind:tap="openHint"
+    >
+      提示
+    </view>
+    <view
+      class="cheatsheet"
+      hover-class="cheatsheet-active"
+      bind:tap="openSheet"
+    >
+      速查表
+    </view>
   </view>
-</view>
+</block>
+<block wx:else>
+  <view class="result">
+    {{ hintText }} ·{{ strict ? ' 严格模式 ·' : '' }} {{ duration }}
+  </view>
+  <view class="divider" />
+  <view class="op-50">距离下一题更新还有</view>
+  <view class="count-down">{{ countDown }}</view>
+</block>

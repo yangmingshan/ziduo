@@ -61,10 +61,14 @@ export const tries = computed<string[]>({
 });
 
 export function markStart() {
-  if (meta.value.end) return;
-  if (!meta.value.start) {
-    meta.value.start = Date.now();
-  }
+  if (meta.value.start || meta.value.end) return;
+  meta.value.start = Date.now();
+}
+
+export function markEnd() {
+  if (!meta.value.start || meta.value.end) return;
+  meta.value.end = Date.now();
+  meta.value.duration = meta.value.end - meta.value.start;
 }
 
 export const gamesCount = computed(
@@ -97,7 +101,7 @@ export const averageDurations = computed(() => {
   return formatDuration(durations / items.length);
 });
 
-function formatDuration(duration: number) {
+export function formatDuration(duration: number) {
   const ts = duration / 1000;
   const m = Math.floor(ts / 60);
   const s = Math.floor(ts % 60);

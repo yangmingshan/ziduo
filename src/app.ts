@@ -2,12 +2,22 @@
 // eslint-disable-next-line no-global-assign, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-empty-function
 Promise = Object.getPrototypeOf((async () => {})()).constructor;
 
-import { createApp } from '@vue-mini/wechat';
-import { initialized } from './storage';
-import { showHelp } from './state';
+import { createApp, watch, watchEffect } from '@vue-mini/wechat';
+import { initialized, meta, markEnd } from './storage';
+import { showHelp, isPassed, isFinished } from './state';
 
 createApp(() => {
   if (!initialized.value) {
     showHelp.value = true;
   }
+
+  watchEffect(() => {
+    if (isPassed.value) {
+      meta.value.passed = true;
+    }
+  });
+
+  watch(isFinished, () => {
+    markEnd();
+  });
 });

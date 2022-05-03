@@ -1,7 +1,7 @@
 <view class="row">
   <view class="square mr-16">
     <view
-      class="{{ locale === 'hans' ? 'text-primary' : 'op80' }}"
+      class="{{ locale === 'hans' ? 'text-primary' : 'op-80' }}"
       data-lang="hans"
       bind:tap="setLocale"
     >
@@ -9,7 +9,7 @@
     </view>
     <view class="divider" />
     <view
-      class="{{ locale === 'hant' ? 'text-primary' : 'op80' }}"
+      class="{{ locale === 'hant' ? 'text-primary' : 'op-80' }}"
       data-lang="hant"
       bind:tap="setLocale"
     >
@@ -17,7 +17,7 @@
     </view>
   </view>
   <view
-    class="square {{ colorblind ? 'text-primary' : 'op80' }}"
+    class="square {{ colorblind ? 'text-primary' : 'op-80' }}"
     bind:tap="setColorblind"
   >
     <text>色彩增强</text>
@@ -27,7 +27,7 @@
 <view class="row">
   <view class="square mr-16">
     <view
-      class="{{ inputMode === 'py' ? 'text-primary' : 'op80' }}"
+      class="{{ inputMode === 'py' ? 'text-primary' : 'op-80' }}"
       data-mode="py"
       bind:tap="setInputMode"
     >
@@ -35,7 +35,7 @@
     </view>
     <view class="divider" />
     <view
-      class="{{ inputMode === 'zy' ? 'text-primary' : 'op80' }}"
+      class="{{ inputMode === 'zy' ? 'text-primary' : 'op-80' }}"
       data-mode="zy"
       bind:tap="setInputMode"
     >
@@ -43,7 +43,7 @@
     </view>
     <view class="divider" />
     <view
-      class="{{ inputMode === 'sp' ? 'text-primary' : 'op80' }}"
+      class="{{ inputMode === 'sp' ? 'text-primary' : 'op-80' }}"
       data-mode="sp"
       bind:tap="setInputMode"
     >
@@ -52,7 +52,7 @@
   </view>
   <view class="square {{ inputMode === 'py' ? '' : 'op-50' }}">
     <view
-      class="{{ useNumberTone ? 'op80' : 'text-primary' }}"
+      class="{{ useNumberTone ? 'op-80' : 'text-primary' }}"
       data-mode="symbol"
       bind:tap="setNumberTone"
     >
@@ -60,7 +60,7 @@
     </view>
     <view class="divider" />
     <view
-      class="{{ useNumberTone ? 'text-primary' : 'op80' }}"
+      class="{{ useNumberTone ? 'text-primary' : 'op-80' }}"
       data-mode="number"
       bind:tap="setNumberTone"
     >
@@ -71,7 +71,7 @@
 <view wx:if="{{ inputMode === 'sp' }}" class="row">
   <view class="square">
     <view
-      class="{{ spMode === 'sougou' ? 'text-primary' : 'op80' }}"
+      class="{{ spMode === 'sougou' ? 'text-primary' : 'op-80' }}"
       data-mode="sougou"
       bind:tap="setSpMode"
     >
@@ -79,7 +79,7 @@
     </view>
     <view class="divider" />
     <view
-      class="{{ spMode === 'xiaohe' ? 'text-primary' : 'op80' }}"
+      class="{{ spMode === 'xiaohe' ? 'text-primary' : 'op-80' }}"
       data-mode="xiaohe"
       bind:tap="setSpMode"
     >
@@ -89,21 +89,21 @@
 </view>
 <view wx:if="{{ !lite }}" class="row">
   <view
-    class="square mr-16 {{ useNoHint ? 'text-primary' : 'op80' }}"
+    class="square mr-16 {{ useNoHint ? 'text-primary' : 'op-80' }}"
     bind:tap="setNoHint"
   >
     <text>禁用提示</text>
     <view wx:if="{{ useNoHint }}" class="mark" />
   </view>
   <view
-    class="square mr-16 {{ useCheckAssist ? 'text-primary' : 'op80' }}"
+    class="square mr-16 {{ useCheckAssist ? 'text-primary' : 'op-80' }}"
     bind:tap="setCheckAssist"
   >
     <text>辅助排除</text>
     <view wx:if="{{ useCheckAssist }}" class="mark" />
   </view>
   <view
-    class="square {{ useStrictMode ? 'text-primary' : 'op80' }} {{ meta.tries && meta.tries.length ? 'op-50' : '' }}"
+    class="square {{ useStrictMode ? 'text-primary' : '' }} {{ started ? 'op-50' : 'op-80' }}"
     bind:tap="setStrictMode"
   >
     <text>严格模式</text>

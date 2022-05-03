@@ -1,4 +1,4 @@
-import { defineComponent } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/wechat';
 import type { SpMode } from '@hankit/tools';
 import {
   locale,
@@ -19,6 +19,8 @@ defineComponent({
     lite: Boolean,
   },
   setup() {
+    const started = computed(() => Boolean(meta.value.tries?.length));
+
     const setLocale = (
       event: WechatMiniprogram.BaseEvent<
         Record<string, unknown>,
@@ -73,7 +75,7 @@ defineComponent({
     };
 
     const setStrictMode = () => {
-      if (meta.value.tries?.length) return;
+      if (started.value) return;
       useStrictMode.value = !useStrictMode.value;
     };
 
@@ -86,6 +88,7 @@ defineComponent({
       useNoHint,
       useCheckAssist,
       useStrictMode,
+      started,
       setLocale,
       setColorblind,
       setInputMode,

@@ -3,9 +3,11 @@ import { useNow } from './composables/now';
 import type { MatchType, ParsedChar } from './logic';
 import {
   START_DATE,
+  TRIES_LIMIT,
   WORD_LENGTH,
   parseWord as _parseWord,
   testAnswer as _testAnswer,
+  checkPass,
   isDstObserved,
   numberToHanzi,
 } from './logic';
@@ -13,6 +15,7 @@ import {
 import {
   useNumberTone as _useNumberTone,
   inputMode,
+  meta,
   spMode,
   tries,
 } from './storage';
@@ -45,6 +48,19 @@ export const answer = computed(() => getAnswerOfDay(dayNo.value));
 
 export const hint = computed(() => answer.value.hint);
 export const parsedAnswer = computed(() => parseWord(answer.value.word));
+
+export const isPassed = computed(
+  () =>
+    meta.value.passed ??
+    (tries.value.length > 0 &&
+      checkPass(testAnswer(parseWord(tries.value[tries.value.length - 1]))))
+);
+export const isFailed = computed(
+  () => !isPassed.value && tries.value.length >= TRIES_LIMIT
+);
+export const isFinished = computed(
+  () => isPassed.value || Boolean(meta.value.answer)
+);
 
 export function parseWord(
   word: string,
