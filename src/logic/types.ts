@@ -21,15 +21,14 @@ export interface MatchResult {
 }
 
 export interface TriesMeta {
-  answer?: boolean;
+  answer?: true;
   start?: number;
   end?: number;
   duration?: number;
-  failed?: boolean;
-  passed?: boolean;
+  failed?: true;
+  passed?: true;
   tries?: string[];
-  hint?: boolean;
+  hint?: true;
   hintLevel?: number;
   strict?: boolean;
-  sent?: boolean;
 }

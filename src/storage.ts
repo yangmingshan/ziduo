@@ -70,8 +70,7 @@ export function markStart() {
 export const gamesCount = computed(
   () =>
     Object.values(records.value).filter((m) =>
-      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-      Boolean(m.passed || m.answer || m.failed)
+      Boolean(m.passed ?? m.answer ?? m.failed)
     ).length
 );
 export const passedTries = computed(() =>
@@ -85,8 +84,7 @@ export const noHintPassedCount = computed(
 );
 export const historyTriesCount = computed(() =>
   Object.values(records.value)
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    .filter((m) => m.passed || m.answer || m.failed)
+    .filter((m) => m.passed ?? m.answer ?? m.failed)
     .map((m) => m.tries?.length ?? 0)
     .reduce((a, b) => a + b, 0)
 );
