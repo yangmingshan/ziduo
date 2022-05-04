@@ -5,6 +5,7 @@ import {
   showSettings,
   showHint,
   showCheatSheet,
+  showFailed,
 } from '@/state';
 import { initialized } from '@/storage';
 
@@ -52,12 +53,19 @@ defineComponent(() => {
     });
   };
 
+  const closeFailed = () => {
+    onClose(() => {
+      showFailed.value = false;
+    });
+  };
+
   return {
     showHelp,
     showDashboard,
     showSettings,
     showHint,
     showCheatSheet,
+    showFailed,
     initialized,
     show,
     onShow,
@@ -66,5 +74,6 @@ defineComponent(() => {
     closeSettings,
     closeCheatSheet,
     closeHelp,
+    closeFailed,
   };
 });

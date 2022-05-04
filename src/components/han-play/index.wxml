@@ -5,12 +5,15 @@
   word="{{ item }}"
   revealed="{{ true }}"
 />
+<block wx:if="{{ showAnswer }}">
+  <view class="answer-title">正确答案</view>
+  <word-blocks word="{{ answer.word }}" />
+</block>
 <word-blocks
   wx:if="{{ !isFinished }}"
   class="word"
   word="{{ input || '' }}"
   active="{{ true }}"
-  answer=""
 />
 <block wx:if="{{ !isFinished }}">
   <view class="input-box">
@@ -32,6 +35,14 @@
   </button>
   <view wx:if="{{ tries.length > 4 && !isFailed }}" class="rest">
     剩余 {{ rest }} 次机会
+  </view>
+  <view
+    wx:if="{{ isFailed }}"
+    class="answer"
+    hover-class="answer-active"
+    bind:tap="openAnswer"
+  >
+    查看答案
   </view>
   <view class="help">
     <view

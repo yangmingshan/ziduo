@@ -41,3 +41,11 @@
 >
   <han-settings />
 </han-modal>
+<han-modal
+  wx:if="{{ showFailed }}"
+  show="{{ show }}"
+  bind:show="onShow"
+  bind:close="closeFailed"
+>
+  <failed-page bind:close="closeFailed" />
+</han-modal>

@@ -1,6 +1,14 @@
-import { defineComponent, ref, computed } from '@vue-mini/wechat';
+import { defineComponent, ref, computed, watchEffect } from '@vue-mini/wechat';
 import { filterNonChineseChars } from '@hankit/tools';
-import { showHint, showCheatSheet, isFinished, isFailed, now } from '@/state';
+import {
+  now,
+  answer,
+  showFailed,
+  showHint,
+  showCheatSheet,
+  isFinished,
+  isFailed,
+} from '@/state';
 import {
   markStart,
   meta,
@@ -48,6 +56,8 @@ defineComponent(() => {
     return `${h} 时 ${m} 分 ${s} 秒`;
   });
 
+  const showAnswer = computed(() => Boolean(meta.value.answer));
+
   const onInput = (event: WechatMiniprogram.Input) => {
     input.value = filterNonChineseChars(event.detail.value).slice(0, 4);
     markStart();
@@ -60,6 +70,10 @@ defineComponent(() => {
 
     tries.value.push(input.value);
     input.value = '';
+  };
+
+  const openAnswer = () => {
+    showFailed.value = true;
   };
 
   const openHint = () => {
@@ -75,7 +89,17 @@ defineComponent(() => {
     showCheatSheet.value = true;
   };
 
+  watchEffect(() => {
+    if (isFailed.value && !meta.value.failed) {
+      meta.value.failed = true;
+      setTimeout(() => {
+        showFailed.value = true;
+      }, 1500);
+    }
+  });
+
   return {
+    answer,
     isFinished,
     isFailed,
     tries,
@@ -87,8 +111,10 @@ defineComponent(() => {
     strict,
     duration,
     countDown,
+    showAnswer,
     onInput,
     onConfirm,
+    openAnswer,
     openHint,
     openSheet,
   };

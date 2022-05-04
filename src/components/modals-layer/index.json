@@ -5,6 +5,7 @@
     "cheat-sheet": "../cheat-sheet/index",
     "welcome-page": "../welcome-page/index",
     "han-settings": "../han-settings/index",
-    "dash-board": "../dash-board/index"
+    "dash-board": "../dash-board/index",
+    "failed-page": "../failed-page/index"
   }
 }
