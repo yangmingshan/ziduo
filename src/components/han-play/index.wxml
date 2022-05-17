@@ -11,7 +11,7 @@
 </block>
 <word-blocks
   wx:if="{{ !isFinished }}"
-  class="word"
+  class="word {{ invalidIdiom ? 'shake' : '' }}"
   word="{{ input || '' }}"
   active="{{ true }}"
 />
@@ -24,6 +24,7 @@
       bind:input="onInput"
       bind:confirm="onConfirm"
     />
+    <view wx:if="{{ invalidIdiom }}" class="toast">成语不在词库内</view>
   </view>
   <button
     class="btn {{ disabled ? 'disabled' : '' }}"

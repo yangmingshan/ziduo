@@ -17,10 +17,17 @@ import {
   useStrictMode,
   formatDuration,
 } from '@/storage';
-import { WORD_LENGTH, TRIES_LIMIT, START_DATE, isDstObserved } from '@/logic';
+import {
+  WORD_LENGTH,
+  TRIES_LIMIT,
+  START_DATE,
+  isDstObserved,
+  checkValidIdiom,
+} from '@/logic';
 
 defineComponent(() => {
   const input = ref('');
+  const invalidIdiom = ref(false);
 
   const disabled = computed(() => input.value.length < WORD_LENGTH);
 
@@ -64,6 +71,16 @@ defineComponent(() => {
   };
 
   const onConfirm = () => {
+    if (disabled.value) return;
+
+    if (!checkValidIdiom(input.value, useStrictMode.value)) {
+      invalidIdiom.value = true;
+      setTimeout(() => {
+        invalidIdiom.value = false;
+      }, 1000);
+      return;
+    }
+
     if (meta.value.strict === undefined) {
       meta.value.strict = useStrictMode.value;
     }
@@ -105,6 +122,7 @@ defineComponent(() => {
     tries,
     useNoHint,
     input,
+    invalidIdiom,
     disabled,
     rest,
     hintText,
