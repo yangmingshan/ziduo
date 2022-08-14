@@ -46,7 +46,7 @@
     "useStaticServer": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.25.1",
+  "libVersion": "2.25.3",
   "appid": "wx7f862a2cd44876dd",
   "projectname": "handle-mini",
   "simulatorType": "wechat",
