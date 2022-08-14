@@ -1,9 +1,16 @@
-import { defineComponent, ref } from '@vue-mini/wechat';
+import {
+  defineComponent,
+  onShareAppMessage,
+  onShareTimeline,
+} from '@vue-mini/wechat';
 
-defineComponent(() => {
-  const greeting = ref('Welcome to Vue Mini');
-
-  return {
-    greeting,
-  };
-});
+defineComponent(
+  () => {
+    onShareAppMessage(() => ({ title: '汉兜' }));
+    onShareTimeline(() => ({ title: '汉兜' }));
+  },
+  {
+    canShareToOthers: true,
+    canShareToTimeline: true,
+  }
+);

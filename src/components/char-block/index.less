@@ -8,25 +8,13 @@
 
 .ok {
   color: @white;
-  border-color: @ok;
+  border-color: transparent;
   background: @ok;
 }
 
 .normal {
-  border-color: rgba(156, 163, 175, 0.08);
+  border-color: transparent;
   background: rgba(156, 163, 175, 0.08);
-}
-
-.char-mask {
-  background: currentcolor;
-  opacity: 0.7;
-  border: 1px solid currentcolor;
-}
-
-.tone-mask {
-  background: currentcolor;
-  opacity: 0.4;
-  border: 1px solid currentcolor;
 }
 
 .text-ok {
@@ -49,6 +37,18 @@
   opacity: 0.3;
 }
 
+.char-mask {
+  background: currentcolor;
+  opacity: 0.7;
+  border: 1px solid currentcolor;
+}
+
+.tone-mask {
+  background: currentcolor;
+  opacity: 0.4;
+  border: 1px solid currentcolor;
+}
+
 .line-through {
   text-decoration: line-through;
 }
@@ -56,7 +56,7 @@
 .zy-char {
   position: absolute;
   top: 0;
-  height: 100%;
+  bottom: 0;
   font-size: 30px;
   line-height: 80px;
   font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -72,8 +72,8 @@
   font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
-.left-12 {
-  left: 12px;
+.left-8 {
+  left: 8px;
 }
 
 .left-16 {
@@ -96,10 +96,17 @@
   top: 34px;
 }
 
+.right-8 {
+  right: 8px;
+}
+
+.right-10 {
+  right: 10px;
+}
+
 .zy-tone {
   position: absolute;
   top: 0;
-  right: 10px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -122,6 +129,15 @@
   line-height: 1;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+}
+
+.one {
+  margin: 0 1px;
+}
+
+.part-two {
+  margin: 0 1px;
+  display: flex;
 }
 
 .two {
@@ -154,6 +170,13 @@
   height: 1px;
   background: currentcolor;
   transform: rotate(45deg);
+}
+
+.masked-zy-symbol {
+  width: 6px;
+  height: 6px;
+  margin-left: 2px;
+  background: currentcolor;
 }
 
 .symbol-1 {
@@ -195,6 +218,16 @@
   top: -2px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
+}
+
+.masked-symbol {
+  width: 8px;
+  height: 8px;
+  background: currentcolor;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .num-tone {

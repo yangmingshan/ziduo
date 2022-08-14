@@ -1,16 +1,18 @@
 <view class="{{blockClass}}">
   <block wx:if="{{ show }}">
     <block wx:if="{{ inputMode === 'zy' }}">
-      <view class="zy-char {{color.char}} {{useMask ? 'left-12' : 'left-16'}}">
+      <view class="zy-char {{color.char}} {{useMask ? 'left-8' : 'left-16'}}">
         {{ char.char }}
       </view>
-      <view class="zy-tone">
+      <view class="zy-tone {{useMask ? 'right-8' : 'right-10'}}">
         <view class="zy">
           <text wx:if="{{ char._1 }}" class="{{color._1}}">{{ char._1 }}</text>
           <text wx:if="{{ char._2 }}" class="{{color._2}}">{{ char._2 }}</text>
           <text wx:if="{{ char._3 }}" class="{{color._3}}">{{ char._3 }}</text>
         </view>
-        <view class="zy-symbol-{{char.tone}} {{color.tone}}" />
+        <view
+          class="{{useMask ? 'masked-zy-symbol' : 'zy-symbol-' + char.tone}} {{color.tone}}"
+        />
       </view>
     </block>
     <block wx:else>
@@ -18,19 +20,21 @@
         {{ char.char }}
       </view>
       <view class="tone {{useMask ? 'top-14' : 'top-11'}}">
-        <view wx:if="{{ char._1 }}" class="{{color._1}}">{{ char._1 }}</view>
-        <block wx:if="{{ partTwo.length }}">
+        <view wx:if="{{ char._1 }}" class="one {{color._1}}">
+          {{ char._1 }}
+        </view>
+        <view wx:if="{{ partTwo.length }}" class="part-two">
           <view wx:for="{{ partTwo }}" wx:key="index" class="two">
             <view class="{{color._2}}">{{item}}</view>
             <view
               wx:if="{{ !useNumberTone && index === toneCharLocation }}"
-              class="symbol-{{char.tone}} {{color.tone}}"
+              class="{{useMask ? 'masked-symbol' : 'symbol-' + char.tone}} {{color.tone}}"
             />
           </view>
           <view wx:if="{{ useNumberTone }}" class="num-tone {{color.tone}}">
             {{ char.tone }}
           </view>
-        </block>
+        </view>
       </view>
     </block>
   </block>

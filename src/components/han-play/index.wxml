@@ -67,6 +67,18 @@
   <view class="result">
     {{ hintText }} ·{{ strict ? ' 严格模式 ·' : '' }} {{ duration }}
   </view>
+  <button
+    open-type="share"
+    class="btn share"
+    hover-class="active"
+    bind:tap="onConfirm"
+  >
+    分享
+  </button>
+  <view class="mask {{ useMask ? 'masked' : '' }}" bind:tap="toggleMask">
+    {{ useMask ? '关闭遮罩' : '开启遮罩' }}
+  </view>
+  <view class="op-50">分享时建议开启遮罩避免剧透</view>
   <view class="divider" />
   <view class="op-50">距离下一题更新还有</view>
   <view class="count-down">{{ countDown }}</view>

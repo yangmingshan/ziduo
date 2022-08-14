@@ -8,6 +8,7 @@ import {
   showCheatSheet,
   isFinished,
   isFailed,
+  useMask,
 } from '@/state';
 import {
   markStart,
@@ -106,6 +107,10 @@ defineComponent(() => {
     showCheatSheet.value = true;
   };
 
+  const toggleMask = () => {
+    useMask.value = !useMask.value;
+  };
+
   watchEffect(() => {
     if (isFailed.value && !meta.value.failed) {
       meta.value.failed = true;
@@ -130,10 +135,12 @@ defineComponent(() => {
     duration,
     countDown,
     showAnswer,
+    useMask,
     onInput,
     onConfirm,
     openAnswer,
     openHint,
     openSheet,
+    toggleMask,
   };
 });
