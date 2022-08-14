@@ -1,0 +1,33 @@
+<view class="about">
+  <view class="title">声明</view>
+  <view
+    >此小程序为汉兜的拷贝，并非官方版本。汉兜原作者 Anthony Fu
+    与此小程序没有关系。官方版本：https://handle.antfu.me</view
+  >
+  <view class="divider" />
+  <view class="title">汉兜原作者</view>
+  <image src="/assets/antfu.jpg" class="avatar" />
+  <view class="center mb-16">Anthony Fu</view>
+  <view class="center mb-16">GitHub: @antfu</view>
+  <view class="center mb-16">Twitter: @antfu7</view>
+  <view class="center mb-16">知乎: @antfu</view>
+  <view class="center">微博: @一个托尼Anthony</view>
+  <view class="divider" />
+  <view class="title">此小程序作者</view>
+  <image src="/assets/yangmingshan.jpg" class="avatar" />
+  <view class="center mb-16">杨明山</view>
+  <view class="center mb-16">GitHub: @yangmingshan</view>
+  <view class="center mb-16">Twitter: @yang_mingshan</view>
+  <view class="center mb-16">知乎: @yang_mingshan</view>
+  <view class="center">微博: @哆啦P股</view>
+  <view class="divider" />
+  <view class="title">工具</view>
+  <image src="/assets/vue-mini.png" class="vuemini" />
+  <view class="center mb-16">Vue Mini</view>
+  <view>
+    此小程序使用 Vue Mini 编写。Vue Mini 是一个基于 Vue 3
+    的小程序库，它能让你像写 Vue 3 一样写小程序，享受 Vue 3
+    的响应式系统以及组合式 API。此小程序的作者也是 Vue Mini
+    的作者。官网：https://vuemini.org
+  </view>
+</view>

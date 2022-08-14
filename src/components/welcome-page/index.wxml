@@ -41,3 +41,11 @@
 <view class="text-center op-50">* 新题目每日零时更新</view>
 <view class="divider" />
 <han-settings class="settings" lite="{{ true }}" />
+<view class="divider" />
+<navigator
+  url="/pages/about/index"
+  class="text-center op-50"
+  hover-class="op-80"
+>
+  关于
+</navigator>
