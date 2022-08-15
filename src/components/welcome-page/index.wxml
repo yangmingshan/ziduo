@@ -42,10 +42,15 @@
 <view class="divider" />
 <han-settings class="settings" lite="{{ true }}" />
 <view class="divider" />
-<navigator
-  url="/pages/about/index"
-  class="text-center op-50"
-  hover-class="op-80"
->
-  关于
-</navigator>
+<view class="footer">
+  <navigator
+    url="/pages/privacy/index"
+    class="flex-1 text-right mr-16 op-50"
+    hover-class="op-80"
+  >
+    隐私声明
+  </navigator>
+  <navigator url="/pages/about/index" class="flex-1 op-50" hover-class="op-80">
+    关于
+  </navigator>
+</view>

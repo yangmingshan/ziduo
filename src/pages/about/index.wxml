@@ -1,9 +1,9 @@
 <view class="about">
   <view class="title">声明</view>
-  <view
-    >此小程序为汉兜的拷贝，并非官方版本。汉兜原作者 Anthony Fu
-    与此小程序没有关系。官方版本：https://handle.antfu.me</view
-  >
+  <view>
+    此小程序为汉兜的拷贝，基于汉兜开源代码二次开发，并非官方版本。汉兜原作者
+    Anthony Fu 与此小程序没有关系。官方版本：https://handle.antfu.me
+  </view>
   <view class="divider" />
   <view class="title">汉兜原作者</view>
   <image src="/assets/antfu.jpg" class="avatar" />
