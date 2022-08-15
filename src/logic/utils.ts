@@ -158,7 +158,7 @@ const numberChar = ['零', '一', '二', '三', '四', '五', '六', '七', '八
 const tens = ['', '十', '百', '千'];
 
 export function numberToHanzi(number: number) {
-  const digits = [...number.toString()].map((i) => Number(i));
+  const digits = [...number.toString()].map(Number);
   const chars = digits.map((i, idx) => {
     const unit = i === 0 ? '' : tens[digits.length - 1 - idx];
     return numberChar[i] + unit;
