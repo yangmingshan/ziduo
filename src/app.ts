@@ -2,7 +2,13 @@
 // eslint-disable-next-line no-global-assign, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-empty-function
 Promise = Object.getPrototypeOf((async () => {})()).constructor;
 
-import { createApp, watch, watchEffect } from '@vue-mini/wechat';
+import {
+  createApp,
+  watch,
+  watchEffect,
+  onAppError,
+  onUnhandledRejection,
+} from '@vue-mini/wechat';
 import { initialized, meta, markEnd } from './storage';
 import { showHelp, isPassed, isFinished } from './state';
 
@@ -19,5 +25,15 @@ createApp(() => {
 
   watch(isFinished, () => {
     markEnd();
+  });
+
+  const logger = wx.getRealtimeLogManager();
+
+  onAppError((error) => {
+    logger.error(error);
+  });
+
+  onUnhandledRejection(({ reason }) => {
+    logger.warn(reason);
   });
 });
