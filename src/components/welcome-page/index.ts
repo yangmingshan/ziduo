@@ -1,8 +1,11 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, ref, computed, watch } from '@vue-mini/wechat';
 import { useMask } from '@/state';
-import { initialized, inputMode } from '@/storage';
+import { locale, initialized, inputMode } from '@/storage';
+import { getLocalized } from '@/lang';
 
 defineComponent((_, context) => {
+  const localized = ref(getLocalized().welcome);
+
   const final = computed(
     () => ({ py: 'uo', zy: 'ㄨㄛ', sp: 'o' }[inputMode.value])
   );
@@ -13,7 +16,12 @@ defineComponent((_, context) => {
     context.triggerEvent('close');
   };
 
+  watch([locale], () => {
+    localized.value = getLocalized().welcome;
+  });
+
   return {
+    localized,
     final,
     onStart,
   };

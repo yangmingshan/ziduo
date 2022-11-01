@@ -1,6 +1,6 @@
-<view class="title">记分板</view>
+<view class="title">{{ localized.title }}</view>
 <view wx:if="{{ showChart }}" class="chart">
-  <view class="chart-title">尝试次数分布</view>
+  <view class="chart-title">{{ localized.tryCountDistribution }}</view>
   <view class="chart-content">
     <block wx:for="{{ chartData }}" wx:key="count">
       <view class="chart-label">{{ item.count }}</view>
@@ -15,38 +15,38 @@
 <view class="row">
   <view>
     <view class="value">{{ gamesCount }}</view>
-    <view class="label">游戏次数</view>
+    <view class="label">{{ localized.gameCount }}</view>
   </view>
   <view>
     <view class="value">{{ passedCount }}</view>
-    <view class="label">获胜次数</view>
+    <view class="label">{{ localized.passedCount }}</view>
   </view>
   <view>
     <view class="value">{{ noHintPassedCount }}</view>
-    <view class="label">无提示</view>
+    <view class="label">{{ localized.noHintPassedCount }}</view>
   </view>
   <view>
     <view class="value">{{ winRate }}</view>
-    <view class="label">胜率</view>
+    <view class="label">{{ localized.winRate }}</view>
   </view>
 </view>
 <view class="row">
   <view>
     <view class="value">{{ allCount }}</view>
-    <view class="label">词语使用</view>
+    <view class="label">{{ localized.allCount }}</view>
   </view>
   <view>
     <view class="value">{{ validRate }}</view>
-    <view class="label">成语比例</view>
+    <view class="label">{{ localized.validRate }}</view>
   </view>
 </view>
 <view class="row">
   <view>
     <view class="value">{{ averageCount }}</view>
-    <view class="label">平均尝试</view>
+    <view class="label">{{ localized.averageCount }}</view>
   </view>
   <view>
     <view class="value">{{ averageDurations }}</view>
-    <view class="label">平均用时</view>
+    <view class="label">{{ localized.averageDurations }}</view>
   </view>
 </view>

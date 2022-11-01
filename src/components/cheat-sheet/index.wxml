@@ -1,12 +1,12 @@
-<view class="title">拼音速查表</view>
+<view class="title">{{ localized.cheatSheet }}</view>
 <view wx:if="{{ inputMode === 'zy' }}" class="zy">
   <view wx:for="{{ zySymbols }}" wx:key="s" class="symbol {{ item.c }}">
     {{ item.s }}
   </view>
 </view>
 <view wx:if="{{ inputMode === 'sp' }}" class="sp">
-  <view class="sub-title">声母</view>
-  <view class="sub-title">韵母</view>
+  <view class="sub-title">{{ localized.initials }}</view>
+  <view class="sub-title">{{ localized.finals }}</view>
   <view class="sp-item">
     <view wx:for="{{ spConstants.initials }}" wx:key="s" class="{{ item.c }}">
       {{ item.s }}
@@ -19,8 +19,8 @@
   </view>
 </view>
 <view wx:if="{{ inputMode === 'py' }}" class="py">
-  <view class="sub-title">声母</view>
-  <view class="sub-title">韵母</view>
+  <view class="sub-title">{{ localized.initials }}</view>
+  <view class="sub-title">{{ localized.finals }}</view>
   <view class="py-initials">
     <view wx:for="{{ pyInitials }}" wx:key="s" class="{{ item.c }}">
       {{ item.s }}

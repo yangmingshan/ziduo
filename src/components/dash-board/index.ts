@@ -9,8 +9,11 @@ import {
   averageDurations,
 } from '@/storage';
 import { checkValidIdiom } from '@/logic';
+import { getLocalized } from '@/lang';
 
 defineComponent(() => {
+  const localized = getLocalized().dashboard;
+
   const showChart = computed(() => passedTries.value.length >= 3);
 
   const triesMap = computed(() => {
@@ -67,6 +70,7 @@ defineComponent(() => {
   );
 
   return {
+    localized,
     showChart,
     chartData,
     gamesCount,

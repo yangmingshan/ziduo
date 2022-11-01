@@ -1,44 +1,60 @@
-<view class="title">汉兜</view>
-<view class="desc">汉字 Wordle</view>
+<view class="title">{{ localized.appName }}</view>
+<view class="desc">{{ localized.appDescription }}</view>
 <view class="divider" />
-<view class="rule">游戏规则</view>
+<view class="rule">{{ localized.rules.title }}</view>
 <view class="mb-16 text-center">
-  <text>你有十次的机会猜一个 </text>
-  <text class="text-ok">四字词语</text>
+  <text>{{ localized.rules.p1 }}</text>
+  <text class="text-ok">{{ localized.rules.p1Emphasize }}</text>
 </view>
-<view>每次猜测后，汉字与拼音的颜色将会标识其与正确答案的区别。</view>
+<view>{{ localized.rules.p2 }}</view>
 <view class="divider" />
-<word-blocks word="班门弄斧" revealed="{{ true }}" answer=" 门  " />
+<word-blocks
+  word="{{ localized.rules.word1 }}"
+  revealed="{{ true }}"
+  answer="{{ localized.rules.answer1 }}"
+/>
 <view class="mt-16 mb-16">
-  <text>第二个字 </text>
-  <text class="text-ok">门</text>
-  <text> 为青色，表示其出现在答案中且在正确的位置。</text>
+  <text>{{ localized.rules.p3 }}</text>
+  <text class="text-ok">{{ localized.rules.p3Emphasize }}</text>
+  <text>{{ localized.rules.p4 }}</text>
 </view>
-<word-blocks word="水落石出" revealed="{{ true }}" answer="一一一水" />
+<word-blocks
+  word="{{ localized.rules.word2 }}"
+  revealed="{{ true }}"
+  answer="{{ localized.rules.answer2 }}"
+/>
 <view class="mt-16 mb-16">
-  <text>第一个字 </text>
-  <text class="text-ok">水</text>
-  <text> 为橙色，表示其出现在答案中，但并不是第一个字。</text>
+  <text>{{ localized.rules.p5 }}</text>
+  <text class="text-ok">{{ localized.rules.p5Emphasize }}</text>
+  <text>{{ localized.rules.p6 }}</text>
 </view>
-<word-blocks word="巧夺天工" revealed="{{ true }}" answer="桥它拖 " />
+<word-blocks
+  word="{{ localized.rules.word3 }}"
+  revealed="{{ true }}"
+  answer="{{ localized.rules.answer3 }}"
+/>
 <view class="mt-16 mb-16">
-  <text>每个格子的 </text>
-  <text class="text-bold">汉字、声母、韵母、声调</text>
-  <text> 都会独立进行颜色的指示。 例如，第一个 </text>
-  <text class="op-50">巧</text>
-  <text>
-    汉字为灰色，而其 声母 与 韵母 均为青色，代表该位置的正确答案为其同音字但非
-  </text>
-  <text class="op-50">巧</text>
-  <text> 字本身。 同理，第二个字中韵母 </text>
+  <text>{{ localized.rules.p7 }}</text>
+  <text class="text-bold">{{ localized.rules.p8 }}</text>
+  <text>{{ localized.rules.p9 }}</text>
+  <text class="op-50">{{ localized.rules.p9Emphasize }}</text>
+  <text>{{ localized.rules.p10 }}</text>
+  <text class="op-50">{{ localized.rules.p10Emphasize }}</text>
+  <text>{{ localized.rules.p11 }}</text>
   <text class="text-mis">{{ final }}</text>
-  <text> 为橙色，代表其韵母出现在四个字之中，但非位居第二。以此类推。</text>
+  <text>{{ localized.rules.p12 }}</text>
 </view>
-<word-blocks word="武运昌隆" revealed="{{ true }}" answer="武运昌隆" />
-<view class="mt-16 text-center">当四个格子都为青色时，你便赢得了游戏！</view>
+<word-blocks
+  word="{{ localized.rules.word4 }}"
+  revealed="{{ true }}"
+  answer="{{ localized.rules.answer4 }}"
+/>
+<view class="mt-16 text-center">{{ localized.rules.p13 }}</view>
 <view class="divider" />
-<button class="btn" hover-class="active" bind:tap="onStart">开始游戏</button>
-<view class="text-center op-50">* 新题目每日零时更新</view>
+<button class="btn" hover-class="active" bind:tap="onStart">
+  {{ localized.start }}
+</button>
+<view class="text-center op-50">{{ localized.updateDescription }}</view>
 <view class="divider" />
 <han-settings class="settings" lite="{{ true }}" />
 <view class="divider" />
@@ -48,9 +64,9 @@
     class="flex-1 text-right mr-16 op-50"
     hover-class="op-80"
   >
-    隐私声明
+    {{ localized.privacy }}
   </navigator>
   <navigator url="/pages/about/index" class="flex-1 op-50" hover-class="op-80">
-    关于
+    {{ localized.about }}
   </navigator>
 </view>

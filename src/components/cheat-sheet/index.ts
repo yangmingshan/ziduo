@@ -7,8 +7,11 @@ import {
 } from '@hankit/tools';
 import { inputMode, spMode } from '@/storage';
 import { getSymbolState } from '@/state';
+import { getLocalized } from '@/lang';
 
 defineComponent(() => {
+  const localized = getLocalized().cheatSheet;
+
   const getSymbolClass = (symbol: string, key?: '_1' | '_2') => {
     const state = getSymbolState(symbol, key);
     if (!state) return '';
@@ -42,6 +45,7 @@ defineComponent(() => {
   });
 
   return {
+    localized,
     inputMode,
     pyInitials,
     pyFinals,

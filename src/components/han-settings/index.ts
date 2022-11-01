@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, ref, computed, watch } from '@vue-mini/wechat';
 import type { SpMode } from '@hankit/tools';
 import {
   locale,
@@ -13,12 +13,15 @@ import {
 } from '@/storage';
 import { useNumberTone } from '@/state';
 import type { InputMode } from '@/logic';
+import { getLocalized } from '@/lang';
 
 defineComponent({
   properties: {
     lite: Boolean,
   },
   setup() {
+    const localized = ref(getLocalized().settings);
+
     const started = computed(() => Boolean(meta.value.tries?.length));
 
     const setLocale = (
@@ -79,7 +82,12 @@ defineComponent({
       useStrictMode.value = !useStrictMode.value;
     };
 
+    watch([locale], () => {
+      localized.value = getLocalized().settings;
+    });
+
     return {
+      localized,
       locale,
       colorblind,
       inputMode,
