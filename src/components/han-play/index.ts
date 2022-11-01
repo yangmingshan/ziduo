@@ -1,4 +1,10 @@
-import { defineComponent, ref, computed, watchEffect } from '@vue-mini/wechat';
+import {
+  defineComponent,
+  ref,
+  computed,
+  watch,
+  watchEffect,
+} from '@vue-mini/wechat';
 import { filterNonChineseChars } from '@hankit/tools';
 import {
   now,
@@ -11,6 +17,7 @@ import {
   useMask,
 } from '@/state';
 import {
+  locale,
   markStart,
   meta,
   tries,
@@ -25,8 +32,10 @@ import {
   isDstObserved,
   checkValidIdiom,
 } from '@/logic';
+import { getLocalized, getLocalizedTime } from '@/lang';
 
 defineComponent(() => {
+  const localized = ref(getLocalized().play);
   const input = ref('');
   const invalidIdiom = ref(false);
 
@@ -37,9 +46,9 @@ defineComponent(() => {
   const hintText = computed(() =>
     meta.value.hint
       ? meta.value.hintLevel === 1
-        ? '字音提示'
-        : '汉字提示'
-      : '无提示'
+        ? localized.value.pronunciationHint
+        : localized.value.characterHint
+      : localized.value.noHint
   );
 
   const strict = computed(() => Boolean(meta.value.strict));
@@ -61,7 +70,7 @@ defineComponent(() => {
     const m = String(Math.floor((ms % 3_600_000) / 60_000)).padStart(2, '0');
     const s = String(Math.floor((ms % 60_000) / 1000)).padStart(2, '0');
 
-    return `${h} 时 ${m} 分 ${s} 秒`;
+    return getLocalizedTime(h, m, s);
   });
 
   const showAnswer = computed(() => Boolean(meta.value.answer));
@@ -111,6 +120,10 @@ defineComponent(() => {
     useMask.value = !useMask.value;
   };
 
+  watch([locale], () => {
+    localized.value = getLocalized().play;
+  });
+
   watchEffect(() => {
     if (isFailed.value && !meta.value.failed) {
       meta.value.failed = true;
@@ -121,6 +134,7 @@ defineComponent(() => {
   });
 
   return {
+    localized,
     answer,
     isFinished,
     isFailed,

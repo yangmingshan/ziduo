@@ -6,7 +6,7 @@
   revealed="{{ true }}"
 />
 <block wx:if="{{ showAnswer }}">
-  <view class="answer-title">正确答案</view>
+  <view class="answer-title">{{ localized.answer }}</view>
   <word-blocks word="{{ answer.word }}" />
 </block>
 <word-blocks
@@ -20,11 +20,13 @@
     <input
       class="input"
       value="{{ input }}"
-      placeholder="输入四字词语..."
+      placeholder="{{ localized.inputPlaceholder }}"
       bind:input="onInput"
       bind:confirm="onConfirm"
     />
-    <view wx:if="{{ invalidIdiom }}" class="toast">成语不在词库内</view>
+    <view wx:if="{{ invalidIdiom }}" class="toast"
+      >{{ localized.notFound }}</view
+    >
   </view>
   <button
     class="btn {{ disabled ? 'disabled' : '' }}"
@@ -32,10 +34,10 @@
     disabled="{{ disabled }}"
     bind:tap="onConfirm"
   >
-    确 定
+    {{ localized.confirm }}
   </button>
   <view wx:if="{{ tries.length > 4 && !isFailed }}" class="rest">
-    剩余 {{ rest }} 次机会
+    {{ localized.left }} {{ rest }} {{ localized.chances }}
   </view>
   <view
     wx:if="{{ isFailed }}"
@@ -43,7 +45,7 @@
     hover-class="answer-active"
     bind:tap="openAnswer"
   >
-    查看答案
+    {{ localized.viewAnswer }}
   </view>
   <view class="help">
     <view
@@ -52,20 +54,20 @@
       hover-class="hint-active"
       bind:tap="openHint"
     >
-      提示
+      {{ localized.hint }}
     </view>
     <view
       class="cheatsheet"
       hover-class="cheatsheet-active"
       bind:tap="openSheet"
     >
-      速查表
+      {{ localized.cheatSheet }}
     </view>
   </view>
 </block>
 <block wx:else>
   <view class="result">
-    {{ hintText }} ·{{ strict ? ' 严格模式 ·' : '' }} {{ duration }}
+    {{ hintText }} ·{{ strict ? localized.strict : '' }} {{ duration }}
   </view>
   <button
     open-type="share"
@@ -73,13 +75,13 @@
     hover-class="active"
     bind:tap="onConfirm"
   >
-    分享
+    {{ localized.share }}
   </button>
   <view class="mask {{ useMask ? 'masked' : '' }}" bind:tap="toggleMask">
-    {{ useMask ? '关闭遮罩' : '开启遮罩' }}
+    {{ useMask ? localized.disableMask : localized.activeMask }}
   </view>
-  <view class="op-50">分享时建议开启遮罩避免剧透</view>
+  <view class="op-50">{{ localized.shareHint }}</view>
   <view class="divider" />
-  <view class="op-50">距离下一题更新还有</view>
+  <view class="op-50">{{ localized.countDownText }}</view>
   <view class="count-down">{{ countDown }}</view>
 </block>

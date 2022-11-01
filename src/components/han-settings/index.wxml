@@ -20,7 +20,7 @@
     class="square {{ colorblind ? 'text-primary' : 'op-80' }}"
     bind:tap="setColorblind"
   >
-    <text>色彩增强</text>
+    <text>{{ localized.colorblind }}</text>
     <view wx:if="{{ colorblind }}" class="mark" />
   </view>
 </view>
@@ -31,7 +31,7 @@
       data-mode="py"
       bind:tap="setInputMode"
     >
-      拼音
+      {{ localized.py }}
     </view>
     <view class="divider" />
     <view
@@ -39,7 +39,7 @@
       data-mode="zy"
       bind:tap="setInputMode"
     >
-      注音
+      {{ localized.zy }}
     </view>
     <view class="divider" />
     <view
@@ -47,7 +47,7 @@
       data-mode="sp"
       bind:tap="setInputMode"
     >
-      双拼
+      {{ localized.sp }}
     </view>
   </view>
   <view class="square {{ inputMode === 'py' ? '' : 'op-50' }}">
@@ -56,7 +56,7 @@
       data-mode="symbol"
       bind:tap="setNumberTone"
     >
-      符号声调
+      {{ localized.characterTone }}
     </view>
     <view class="divider" />
     <view
@@ -64,7 +64,7 @@
       data-mode="number"
       bind:tap="setNumberTone"
     >
-      数字声调
+      {{ localized.numberTone }}
     </view>
   </view>
 </view>
@@ -75,7 +75,7 @@
       data-mode="sougou"
       bind:tap="setSpMode"
     >
-      搜狗双拼
+      {{ localized.sougouSp }}
     </view>
     <view class="divider" />
     <view
@@ -83,7 +83,7 @@
       data-mode="xiaohe"
       bind:tap="setSpMode"
     >
-      小鹤双拼
+      {{ localized.xiaoheSp }}
     </view>
   </view>
 </view>
@@ -92,21 +92,21 @@
     class="square mr-16 {{ useNoHint ? 'text-primary' : 'op-80' }}"
     bind:tap="setNoHint"
   >
-    <text>禁用提示</text>
+    <text>{{ localized.disableHint }}</text>
     <view wx:if="{{ useNoHint }}" class="mark" />
   </view>
   <view
     class="square mr-16 {{ useCheckAssist ? 'text-primary' : 'op-80' }}"
     bind:tap="setCheckAssist"
   >
-    <text>辅助排除</text>
+    <text>{{ localized.assist }}</text>
     <view wx:if="{{ useCheckAssist }}" class="mark" />
   </view>
   <view
     class="square {{ useStrictMode ? 'text-primary' : '' }} {{ started ? 'op-50' : 'op-80' }}"
     bind:tap="setStrictMode"
   >
-    <text>严格模式</text>
+    <text>{{ localized.strict }}</text>
     <view wx:if="{{ useStrictMode }}" class="mark" />
   </view>
 </view>

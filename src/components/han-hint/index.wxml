@@ -1,7 +1,9 @@
 <view class="day">{{ dayNoHanzi }}</view>
 <view class="answer">
-  <text>答案包含以下</text>
-  <text class="answer-text">{{ level2 ? ' 汉字' : ' 字音' }}</text>
+  <text>{{ localized.answer }}</text>
+  <text class="answer-text"
+    >{{ level2 ? localized.character : localized.pronunciation }}</text
+  >
 </view>
 <char-block class="hint" char="{{ level2 ? parsed : masked }}" />
 <button
@@ -10,5 +12,5 @@
   hover-class="active"
   bind:tap="goFurther"
 >
-  进一步提示
+  {{ localized.further }}
 </button>
