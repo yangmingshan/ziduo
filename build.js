@@ -1,11 +1,11 @@
 /* eslint-disable unicorn/prefer-module */
 'use strict';
 
-const os = require('os');
-const path = require('path');
-const crypto = require('crypto');
-const process = require('process');
-const { spawn } = require('child_process');
+const os = require('node:os');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const process = require('node:process');
+const { spawn } = require('node:child_process');
 const fs = require('fs-extra');
 const chokidar = require('chokidar');
 const babel = require('@babel/core');
@@ -15,9 +15,9 @@ const less = require('less');
 const postcss = require('postcss');
 const pxtorpx = require('postcss-pxtorpx-pro');
 const url = require('postcss-url');
-const rollup = require('rollup');
+const { rollup } = require('rollup');
 const replace = require('@rollup/plugin-replace');
-const { terser } = require('rollup-plugin-terser');
+const terser = require('@rollup/plugin-terser');
 const { default: resolve } = require('@rollup/plugin-node-resolve');
 
 const NODE_ENV = process.env.NODE_ENV || 'production';
@@ -85,7 +85,7 @@ async function bundleModule(module) {
     entry = paths.join(path.sep);
   }
 
-  const bundle = await rollup.rollup({
+  const bundle = await rollup({
     input: entry,
     plugins: [
       replace({
@@ -275,8 +275,10 @@ async function prod() {
 }
 
 if (__PROD__) {
+  // eslint-disable-next-line unicorn/prefer-top-level-await
   prod();
 } else {
   spawn('serve', ['src'], { stdio: 'inherit', shell: true });
+  // eslint-disable-next-line unicorn/prefer-top-level-await
   dev();
 }

@@ -61,6 +61,7 @@ export const tries = computed<string[]>({
 });
 
 export function markStart() {
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   if (meta.value.start || meta.value.end) return;
   meta.value.start = Date.now();
 }

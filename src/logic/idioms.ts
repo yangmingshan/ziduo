@@ -2,6 +2,7 @@ import { getPinyinRaw, toSimplified } from '@hankit/tools';
 import { polyphones } from '@/data/polyphones';
 import { idioms } from '@/data/idioms';
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 const getPinyinRawWithTypes = getPinyinRaw as typeof import('pinyin');
 
 export function getIdiom(

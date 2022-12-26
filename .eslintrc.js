@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/prefer-module */
 'use strict';
 
-const process = require('process');
+const process = require('node:process');
 
 const isProd = process.env.NODE_ENV === 'production';
 
