@@ -2,6 +2,7 @@
   "name": "handle-mini",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.1.2",
   "scripts": {
     "lint:script": "cross-env NODE_ENV=production eslint --ext .js,.ts .",
     "lint:style": "cross-env NODE_ENV=production stylelint \"src/**/*.less\"",
@@ -18,6 +19,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.6",
+    "@babel/plugin-transform-numeric-separator": "^7.24.6",
+    "@babel/plugin-transform-optional-chaining": "^7.24.6",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.18.6",

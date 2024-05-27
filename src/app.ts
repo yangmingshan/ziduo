@@ -36,18 +36,4 @@ createApp(() => {
   onUnhandledRejection(({ reason }) => {
     logger.warn(reason);
   });
-
-  const updater = wx.getUpdateManager();
-
-  updater.onUpdateReady(function () {
-    wx.showModal({
-      title: '更新提示',
-      content: '新版本已准备好，立即重启？',
-      success(response) {
-        if (response.confirm) {
-          updater.applyUpdate();
-        }
-      },
-    });
-  });
 });

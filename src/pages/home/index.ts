@@ -6,8 +6,8 @@ import {
 
 defineComponent(
   () => {
-    onShareAppMessage(() => ({ title: '汉兜' }));
-    onShareTimeline(() => ({ title: '汉兜' }));
+    onShareAppMessage(() => ({ title: '字多（原汉兜）' }));
+    onShareTimeline(() => ({ title: '字多（原汉兜）' }));
   },
   {
     canShareToOthers: true,
