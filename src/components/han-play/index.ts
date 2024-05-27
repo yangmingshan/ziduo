@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watchEffect } from '@vue-mini/wechat';
+import { defineComponent, ref, computed, watchEffect } from '@vue-mini/core';
 import { filterNonChineseChars } from '@hankit/tools';
 import {
   now,
@@ -35,11 +35,11 @@ defineComponent(() => {
   const rest = computed(() => TRIES_LIMIT - tries.value.length);
 
   const hintText = computed(() =>
-    meta.value.hint
-      ? meta.value.hintLevel === 1
-        ? '字音提示'
-        : '汉字提示'
-      : '无提示'
+    meta.value.hint ?
+      meta.value.hintLevel === 1 ?
+        '字音提示'
+      : '汉字提示'
+    : '无提示',
   );
 
   const strict = computed(() => Boolean(meta.value.strict));
@@ -49,14 +49,14 @@ defineComponent(() => {
   const countDown = computed(() => {
     const ms =
       86_400_000 -
-      (((isDstObserved(now.value)
-        ? Number(now.value) + 3_600_000
-        : Number(now.value)) -
+      (((isDstObserved(now.value) ?
+        Number(now.value) + 3_600_000
+      : Number(now.value)) -
         Number(START_DATE)) %
         86_400_000);
     const h = String(Math.floor((ms % 86_400_000) / 3_600_000)).padStart(
       2,
-      '0'
+      '0',
     );
     const m = String(Math.floor((ms % 3_600_000) / 60_000)).padStart(2, '0');
     const s = String(Math.floor((ms % 60_000) / 1000)).padStart(2, '0');
@@ -96,9 +96,7 @@ defineComponent(() => {
 
   const openHint = () => {
     meta.value.hint = true;
-    if (!meta.value.hintLevel) {
-      meta.value.hintLevel = 1;
-    }
+    meta.value.hintLevel ||= 1;
 
     showHint.value = true;
   };

@@ -1,20 +1,20 @@
-/* eslint-disable unicorn/prefer-module */
-'use strict';
-
-module.exports = {
+const config = {
   '**/*.js': (filenames) => [
-    `cross-env NODE_ENV=production eslint --fix ${filenames.join(' ')}`,
+    `prettier --write ${filenames.join(' ')}`,
+    `eslint ${filenames.join(' ')}`,
   ],
   '**/*.ts': (filenames) => [
-    `cross-env NODE_ENV=production eslint --fix ${filenames.join(' ')}`,
+    `prettier --write ${filenames.join(' ')}`,
+    `eslint ${filenames.join(' ')}`,
     'tsc --noEmit',
   ],
   '**/*.less': (filenames) => [
-    `cross-env NODE_ENV=production stylelint --fix ${filenames.join(' ')}`,
+    `prettier --write ${filenames.join(' ')}`,
+    `stylelint ${filenames.join(' ')}`,
   ],
-  '**/*.wxml': (filenames) => [
-    `prettier --write --parser html ${filenames.join(' ')}`,
-  ],
+  '**/*.html': (filenames) => [`prettier --write ${filenames.join(' ')}`],
   '**/*.json': (filenames) => [`prettier --write ${filenames.join(' ')}`],
   '**/*.md': (filenames) => [`prettier --write ${filenames.join(' ')}`],
 };
+
+export default config;

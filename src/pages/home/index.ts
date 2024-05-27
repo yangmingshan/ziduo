@@ -2,7 +2,7 @@ import {
   defineComponent,
   onShareAppMessage,
   onShareTimeline,
-} from '@vue-mini/wechat';
+} from '@vue-mini/core';
 
 defineComponent(
   () => {
@@ -12,5 +12,5 @@ defineComponent(
   {
     canShareToOthers: true,
     canShareToTimeline: true,
-  }
+  },
 );

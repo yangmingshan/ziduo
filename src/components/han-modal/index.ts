@@ -1,4 +1,4 @@
-import { defineComponent, onReady } from '@vue-mini/wechat';
+import { defineComponent, onReady } from '@vue-mini/core';
 
 defineComponent({
   properties: {

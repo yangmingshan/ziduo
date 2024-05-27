@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import type { SpMode } from '@hankit/tools';
 import {
   locale,
@@ -26,7 +26,7 @@ defineComponent({
         Record<string, unknown>,
         Record<string, unknown>,
         { lang: 'hans' | 'hant' }
-      >
+      >,
     ) => {
       locale.value = event.target.dataset.lang;
     };
@@ -40,7 +40,7 @@ defineComponent({
         Record<string, unknown>,
         Record<string, unknown>,
         { mode: InputMode }
-      >
+      >,
     ) => {
       inputMode.value = event.target.dataset.mode;
     };
@@ -50,7 +50,7 @@ defineComponent({
         Record<string, unknown>,
         Record<string, unknown>,
         { mode: 'symbol' | 'number' }
-      >
+      >,
     ) => {
       if (inputMode.value !== 'py') return;
       useNumberToneRaw.value = event.target.dataset.mode === 'number';
@@ -61,7 +61,7 @@ defineComponent({
         Record<string, unknown>,
         Record<string, unknown>,
         { mode: SpMode }
-      >
+      >,
     ) => {
       spMode.value = event.target.dataset.mode;
     };

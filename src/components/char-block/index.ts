@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import type { MatchResult, MatchType, ParsedChar } from '@/logic/types';
 import { inputMode, useCheckAssist } from '@/storage';
 import { getSymbolState, useMask, useNumberTone } from '@/state';
@@ -13,7 +13,7 @@ defineComponent({
     const exact = computed(
       () =>
         Boolean(props.answer) &&
-        Object.values(props.answer).every((i) => i === 'exact')
+        Object.values(props.answer).every((i) => i === 'exact'),
     );
 
     const parsed = computed(() => {
@@ -25,24 +25,28 @@ defineComponent({
       } else {
         result = {
           _1:
-            getSymbolState(
-              props.char._1,
-              inputMode.value === 'sp' ? '_1' : undefined
-            ) === 'none'
-              ? 'deleted'
-              : undefined,
+            (
+              getSymbolState(
+                props.char._1,
+                inputMode.value === 'sp' ? '_1' : undefined,
+              ) === 'none'
+            ) ?
+              'deleted'
+            : undefined,
           _2:
-            getSymbolState(
-              props.char._2,
-              inputMode.value === 'sp' ? '_2' : undefined
-            ) === 'none'
-              ? 'deleted'
-              : undefined,
+            (
+              getSymbolState(
+                props.char._2,
+                inputMode.value === 'sp' ? '_2' : undefined,
+              ) === 'none'
+            ) ?
+              'deleted'
+            : undefined,
           _3: getSymbolState(props.char._3) === 'none' ? 'deleted' : undefined,
           tone:
-            getSymbolState(props.char.tone, 'tone') === 'none'
-              ? 'deleted'
-              : undefined,
+            getSymbolState(props.char.tone, 'tone') === 'none' ? 'deleted' : (
+              undefined
+            ),
         };
       }
 
@@ -50,7 +54,11 @@ defineComponent({
     });
 
     const getColor = (result?: MatchType, isChar = false) => {
-      const pre = useMask.value ? (isChar ? 'char-mask' : 'tone-mask') : '';
+      const pre =
+        useMask.value ?
+          isChar ? 'char-mask'
+          : 'tone-mask'
+        : '';
 
       if (!result || exact.value) return pre;
 
@@ -63,15 +71,13 @@ defineComponent({
       return `${pre} ${colors[result]}`;
     };
 
-    const color = computed(() => {
-      return {
-        char: getColor(parsed.value.char, true),
-        _1: getColor(parsed.value._1),
-        _2: getColor(parsed.value._2),
-        _3: getColor(parsed.value._3),
-        tone: getColor(parsed.value.tone),
-      };
-    });
+    const color = computed(() => ({
+      char: getColor(parsed.value.char, true),
+      _1: getColor(parsed.value._1),
+      _2: getColor(parsed.value._2),
+      _3: getColor(parsed.value._3),
+      tone: getColor(parsed.value.tone),
+    }));
 
     const blockClass = computed(() => {
       if (!props.answer) return 'base';

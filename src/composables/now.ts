@@ -1,4 +1,4 @@
-import { ref } from '@vue-mini/wechat';
+import { ref } from '@vue-mini/core';
 
 export function useNow() {
   const now = ref(new Date());

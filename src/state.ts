@@ -1,4 +1,4 @@
-import { ref, computed } from '@vue-mini/wechat';
+import { ref, computed } from '@vue-mini/core';
 import { useNow } from './composables/now';
 import type { MatchType, ParsedChar } from './logic';
 import {
@@ -38,8 +38,9 @@ export const useNumberTone = computed(() => {
 
 export const daySince = computed(() => {
   // Adjust date for daylight saving time, assuming START_DATE is not in DST
-  const adjustedNow = isDstObserved(now.value)
-    ? new Date(Number(now.value) + 3_600_000)
+  const adjustedNow =
+    isDstObserved(now.value) ?
+      new Date(Number(now.value) + 3_600_000)
     : now.value;
   return Math.floor((Number(adjustedNow) - Number(START_DATE)) / 86_400_000);
 });
@@ -54,20 +55,21 @@ export const isPassed = computed(
   () =>
     meta.value.passed ??
     (tries.value.length > 0 &&
-      checkPass(testAnswer(parseWord(tries.value[tries.value.length - 1]))))
+      // eslint-disable-next-line unicorn/prefer-at -- requires safari v15.4
+      checkPass(testAnswer(parseWord(tries.value[tries.value.length - 1])))),
 );
 export const isFailed = computed(
-  () => !isPassed.value && tries.value.length >= TRIES_LIMIT
+  () => !isPassed.value && tries.value.length >= TRIES_LIMIT,
 );
 export const isFinished = computed(
-  () => isPassed.value || Boolean(meta.value.answer)
+  () => isPassed.value || Boolean(meta.value.answer),
 );
 
 export function parseWord(
   word: string,
   _ans = answer.value.word,
   mode = inputMode.value,
-  spM = spMode.value
+  spM = spMode.value,
 ) {
   return _parseWord(word, _ans, mode, spM);
 }
@@ -84,12 +86,12 @@ export const parsedTries = computed(() =>
       word,
       result,
     };
-  })
+  }),
 );
 
 export function getSymbolState(
   symbol?: string | number,
-  key?: '_1' | '_2' | 'tone'
+  key?: '_1' | '_2' | 'tone',
 ) {
   const results: MatchType[] = [];
   for (const t of parsedTries.value) {

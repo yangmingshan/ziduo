@@ -1,15 +1,7 @@
-/* eslint-disable unicorn/prefer-module */
-'use strict';
-
-const process = require('node:process');
-
-const isProd = process.env.NODE_ENV === 'production';
-
-module.exports = {
-  customSyntax: require('postcss-less'),
-  extends: ['stylelint-config-xo', 'stylelint-prettier/recommended'],
+const config = {
+  customSyntax: 'postcss-less',
+  extends: 'stylelint-config-standard',
   rules: {
-    'prettier/prettier': isProd ? true : null,
     'alpha-value-notation': 'number',
     'color-function-notation': 'legacy',
     'selector-type-no-unknown': [
@@ -20,3 +12,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;

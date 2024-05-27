@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, onReady } from '@vue-mini/wechat';
+import { defineComponent, ref, computed, onReady } from '@vue-mini/core';
 import {
   parseWord,
   parsedAnswer,
@@ -25,7 +25,7 @@ defineComponent({
       if (props.revealed) {
         return testAnswer(
           parseWord(props.word),
-          props.answer ? parseWord(props.answer) : parsedAnswer.value
+          props.answer ? parseWord(props.answer) : parsedAnswer.value,
         );
       }
 
@@ -35,8 +35,8 @@ defineComponent({
     const parsed = computed(() =>
       parseWord(
         props.word.padEnd(WORD_LENGTH, ' '),
-        props.answer || todayAnswer.value.word
-      )
+        props.answer || todayAnswer.value.word,
+      ),
     );
 
     onReady(() => {

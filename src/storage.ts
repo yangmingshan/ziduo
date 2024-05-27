@@ -1,4 +1,4 @@
-import { computed } from '@vue-mini/wechat';
+import { computed } from '@vue-mini/core';
 import type { SpMode } from '@hankit/tools';
 import { useStorage } from './composables/storage';
 // eslint-disable-next-line import/no-cycle
@@ -21,17 +21,17 @@ const preferZhuyin = language.includes('zh') && language.includes('tw');
 // `history` is a reserved word in miniprogram
 export const records = useStorage<Record<number, TriesMeta>>(
   'handle-tries-meta',
-  {}
+  {},
 );
 export const initialized = useStorage('handle-initialized', false);
 
 export const locale = useStorage<'hans' | 'hant'>(
   'handle-locale',
-  preferTraditional ? 'hant' : 'hans'
+  preferTraditional ? 'hant' : 'hans',
 );
 export const inputMode = useStorage<InputMode>(
   'handle-mode',
-  preferZhuyin ? 'zy' : 'py'
+  preferZhuyin ? 'zy' : 'py',
 );
 export const spMode = useStorage<SpMode>('handle-sp-mode', 'sougou');
 export const colorblind = useStorage('handle-colorblind', false);
@@ -52,7 +52,7 @@ export const meta = computed<TriesMeta>({
 
 export const tries = computed<string[]>({
   get() {
-    if (!meta.value.tries) meta.value.tries = [];
+    meta.value.tries ||= [];
     return meta.value.tries;
   },
   set(v) {
@@ -75,27 +75,27 @@ export function markEnd() {
 export const gamesCount = computed(
   () =>
     Object.values(records.value).filter((m) =>
-      Boolean(m.passed ?? m.answer ?? m.failed)
-    ).length
+      Boolean(m.passed ?? m.answer ?? m.failed),
+    ).length,
 );
 export const passedTries = computed(() =>
-  Object.values(records.value).filter((m) => Boolean(m.passed))
+  Object.values(records.value).filter((m) => Boolean(m.passed)),
 );
 export const passedCount = computed(() => passedTries.value.length);
 export const noHintPassedCount = computed(
   () =>
     Object.values(records.value).filter((m) => Boolean(m.passed && !m.hint))
-      .length
+      .length,
 );
 export const historyTriesCount = computed(() =>
   Object.values(records.value)
     .filter((m) => m.passed ?? m.answer ?? m.failed)
     .map((m) => m.tries?.length ?? 0)
-    .reduce((a, b) => a + b, 0)
+    .reduce((a, b) => a + b, 0),
 );
 export const averageDurations = computed(() => {
   const items = Object.values(records.value).filter(
-    (m) => m.passed && m.duration
+    (m) => m.passed && m.duration,
   );
   if (items.length === 0) return 0;
   const durations = items.map((m) => m.duration!).reduce((a, b) => a + b, 0);

@@ -1,4 +1,4 @@
-import { defineComponent } from '@vue-mini/wechat';
+import { defineComponent } from '@vue-mini/core';
 import { showHelp, useMask, showDashboard, showSettings } from '@/state';
 import { gamesCount } from '@/storage';
 

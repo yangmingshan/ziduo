@@ -1,4 +1,4 @@
-import { defineComponent } from '@vue-mini/wechat';
+import { defineComponent } from '@vue-mini/core';
 import { meta } from '@/storage';
 
 defineComponent((_, context) => {

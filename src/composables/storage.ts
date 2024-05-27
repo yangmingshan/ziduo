@@ -1,5 +1,5 @@
-import { ref, watch } from '@vue-mini/wechat';
-import type { Ref, UnwrapRef } from '@vue-mini/wechat';
+import { ref, watch } from '@vue-mini/core';
+import type { Ref, UnwrapRef } from '@vue-mini/core';
 
 export function useStorage<T>(key: string, value: T): Ref<UnwrapRef<T>> {
   try {
@@ -20,7 +20,7 @@ export function useStorage<T>(key: string, value: T): Ref<UnwrapRef<T>> {
         wx.setStorageSync(key, data.value);
       } catch {}
     },
-    { deep: true }
+    { deep: true },
   );
 
   return data;

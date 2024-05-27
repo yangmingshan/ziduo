@@ -1,3 +1,3 @@
-import { defineComponent } from '@vue-mini/wechat';
+import { defineComponent } from '@vue-mini/core';
 
 defineComponent({});

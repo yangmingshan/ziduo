@@ -8,7 +8,7 @@ import {
   watchEffect,
   onAppError,
   onUnhandledRejection,
-} from '@vue-mini/wechat';
+} from '@vue-mini/core';
 import { initialized, meta, markEnd } from './storage';
 import { showHelp, isPassed, isFinished } from './state';
 

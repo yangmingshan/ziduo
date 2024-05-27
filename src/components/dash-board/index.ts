@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import {
   passedTries,
   gamesCount,
@@ -40,14 +40,14 @@ defineComponent(() => {
   });
 
   const winRate = computed(
-    () => `${Math.round((passedCount.value / gamesCount.value) * 100)}%`
+    () => `${Math.round((passedCount.value / gamesCount.value) * 100)}%`,
   );
 
   const allWords = computed(() => [
     ...new Set(
       Object.values(records.value)
         .flatMap((i) => i.tries)
-        .filter(Boolean) as string[]
+        .filter(Boolean) as string[],
     ),
   ]);
 
@@ -58,12 +58,12 @@ defineComponent(() => {
       `${Math.round(
         (allWords.value.filter((i) => checkValidIdiom(i, true)).length /
           allCount.value) *
-          100
-      )}%`
+          100,
+      )}%`,
   );
 
   const averageCount = computed(() =>
-    (historyTriesCount.value / gamesCount.value).toFixed(1)
+    (historyTriesCount.value / gamesCount.value).toFixed(1),
   );
 
   return {

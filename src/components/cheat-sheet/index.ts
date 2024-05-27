@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import {
   getShuangpinConstants,
   pinyinFinals,
@@ -21,15 +21,15 @@ defineComponent(() => {
   };
 
   const pyInitials = computed(() =>
-    pinyinInitials.map((s) => ({ s, c: getSymbolClass(s) }))
+    pinyinInitials.map((s) => ({ s, c: getSymbolClass(s) })),
   );
 
   const pyFinals = computed(() =>
-    pinyinFinals.map((s) => ({ s: s.replace('v', 'ü'), c: getSymbolClass(s) }))
+    pinyinFinals.map((s) => ({ s: s.replace('v', 'ü'), c: getSymbolClass(s) })),
   );
 
   const zySymbols = computed(() =>
-    zhuyinSymbols.map((s) => ({ s, c: getSymbolClass(s) }))
+    zhuyinSymbols.map((s) => ({ s, c: getSymbolClass(s) })),
   );
 
   const spConstants = computed(() => {

@@ -12,7 +12,7 @@ import { getPinyin } from './idioms';
 export function parsePinyin(
   pinyin: string,
   mode: InputMode = 'py',
-  spMode: SpMode = 'sougou'
+  spMode: SpMode = 'sougou',
 ) {
   let parts: string[] = [];
   if (pinyin) {
@@ -35,9 +35,9 @@ export function parseChar(
   char: string,
   pinyin?: string,
   mode?: InputMode,
-  spMode?: SpMode
+  spMode?: SpMode,
 ): ParsedChar {
-  if (!pinyin) pinyin = getPinyin(char)[0];
+  pinyin ||= getPinyin(char)[0];
   const tone = /\d$/.exec(pinyin)?.[0] ?? '';
   if (tone) pinyin = pinyin.slice(0, -tone.length).trim();
 
@@ -65,7 +65,7 @@ export function parseWord(
   word: string,
   answer?: string,
   mode?: InputMode,
-  spMode?: SpMode
+  spMode?: SpMode,
 ) {
   const pinyins = getPinyin(word);
   const chars = [...word];
@@ -74,7 +74,7 @@ export function parseWord(
   return chars.map((char, i): ParsedChar => {
     let pinyin = pinyins[i] || '';
     // Try match the pinyin from the answer word
-    if (answerPinyin && answer && answer.includes(char))
+    if (answerPinyin && answer?.includes(char))
       pinyin = answerPinyin[answer.indexOf(char)] || pinyin;
     return parseChar(char, pinyin, mode, spMode);
   });
@@ -84,9 +84,9 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
   const unmatched = {
     char: answer
       .map((a, i) =>
-        toSimplified(input[i].char) === toSimplified(a.char)
-          ? undefined
-          : toSimplified(a.char)
+        toSimplified(input[i].char) === toSimplified(a.char) ?
+          undefined
+        : toSimplified(a.char),
       )
       // eslint-disable-next-line eqeqeq, no-eq-null
       .filter((i) => i != null),
@@ -113,35 +113,25 @@ export function testAnswer(input: ParsedChar[], answer: ParsedChar[]) {
     const char = toSimplified(a.char);
     return {
       char:
-        answer[i].char === char || answer[i].char === a.char
-          ? 'exact'
-          : includesAndRemove(unmatched.char, char)
-          ? 'misplaced'
-          : 'none',
+        answer[i].char === char || answer[i].char === a.char ? 'exact'
+        : includesAndRemove(unmatched.char, char) ? 'misplaced'
+        : 'none',
       tone:
-        answer[i].tone === a.tone
-          ? 'exact'
-          : includesAndRemove(unmatched.tone, a.tone)
-          ? 'misplaced'
-          : 'none',
+        answer[i].tone === a.tone ? 'exact'
+        : includesAndRemove(unmatched.tone, a.tone) ? 'misplaced'
+        : 'none',
       _1:
-        !a._1 || answer[i].parts.includes(a._1)
-          ? 'exact'
-          : includesAndRemove(unmatched.parts, a._1)
-          ? 'misplaced'
-          : 'none',
+        !a._1 || answer[i].parts.includes(a._1) ? 'exact'
+        : includesAndRemove(unmatched.parts, a._1) ? 'misplaced'
+        : 'none',
       _2:
-        !a._2 || answer[i].parts.includes(a._2)
-          ? 'exact'
-          : includesAndRemove(unmatched.parts, a._2)
-          ? 'misplaced'
-          : 'none',
+        !a._2 || answer[i].parts.includes(a._2) ? 'exact'
+        : includesAndRemove(unmatched.parts, a._2) ? 'misplaced'
+        : 'none',
       _3:
-        !a._3 || answer[i].parts.includes(a._3)
-          ? 'exact'
-          : includesAndRemove(unmatched.parts, a._3)
-          ? 'misplaced'
-          : 'none',
+        !a._3 || answer[i].parts.includes(a._3) ? 'exact'
+        : includesAndRemove(unmatched.parts, a._3) ? 'misplaced'
+        : 'none',
     };
   });
 }
@@ -183,7 +173,7 @@ export function isDstObserved(date: Date) {
   const jul = new Date(date.getFullYear(), 6, 1);
   const standardTimezoneOffset = Math.max(
     jan.getTimezoneOffset(),
-    jul.getTimezoneOffset()
+    jul.getTimezoneOffset(),
   );
   return date.getTimezoneOffset() < standardTimezoneOffset;
 }

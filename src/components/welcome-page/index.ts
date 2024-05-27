@@ -1,10 +1,10 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import { useMask } from '@/state';
 import { initialized, inputMode } from '@/storage';
 
 defineComponent((_, context) => {
   const final = computed(
-    () => ({ py: 'uo', zy: 'ㄨㄛ', sp: 'o' }[inputMode.value])
+    () => ({ py: 'uo', zy: 'ㄨㄛ', sp: 'o' })[inputMode.value],
   );
 
   const onStart = () => {

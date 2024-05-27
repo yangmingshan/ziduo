@@ -1,10 +1,14 @@
-/* eslint-disable unicorn/prefer-module */
-'use strict';
+import fs from 'node:fs';
 
-const runtimeVersion = require('@babel/runtime/package.json').version;
+const runtimeVersion = JSON.parse(
+  fs.readFileSync(
+    new URL(import.meta.resolve('@babel/runtime/package.json')),
+    'utf8',
+  ),
+).version;
 
-module.exports = ({ env }) => ({
-  targets: env('test') ? { node: 'current' } : {},
+const config = {
+  targets: {},
   assumptions: {
     arrayLikeIsIterable: true,
     constantReexports: true,
@@ -41,7 +45,6 @@ module.exports = ({ env }) => ({
     [
       '@babel/plugin-transform-runtime',
       {
-        regenerator: false,
         version: runtimeVersion,
       },
     ],
@@ -61,4 +64,6 @@ module.exports = ({ env }) => ({
     ],
     'autocomplete-index',
   ],
-});
+};
+
+export default config;

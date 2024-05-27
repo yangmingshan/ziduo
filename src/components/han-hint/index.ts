@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@vue-mini/wechat';
+import { defineComponent, computed } from '@vue-mini/core';
 import { answer, dayNoHanzi, hint, parseWord } from '@/state';
 import { meta } from '@/storage';
 

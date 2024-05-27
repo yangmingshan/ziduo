@@ -117,7 +117,7 @@ export const _2022_FEB = prepare(28, [
       ['瓜田李下', '下'],
       ['语不投机'],
     ],
-    '2022-02'
+    '2022-02',
   ),
 ]);
 
@@ -157,8 +157,8 @@ export const _2022_MARCH = prepare(
       ['坐吃山空', '山'],
       ['愤世嫉俗', '世'],
     ],
-    '2022-03'
-  )
+    '2022-03',
+  ),
 );
 
 export const _2022_APRIL = prepare(
@@ -196,8 +196,8 @@ export const _2022_APRIL = prepare(
       ['居安思危', '安'],
       ['百里挑一', '百'], // D100
     ],
-    '2022-04'
-  )
+    '2022-04',
+  ),
 );
 
 export const _2022_MAY = prepare(
@@ -236,8 +236,8 @@ export const _2022_MAY = prepare(
       ['光阴似箭', '似'],
       ['飞来横祸', '来'],
     ],
-    '2022-05'
-  )
+    '2022-05',
+  ),
 );
 
 export const _2022_JUNE = prepare(
@@ -275,8 +275,8 @@ export const _2022_JUNE = prepare(
       ['举手之劳', '手'],
       ['和蔼可亲', '可'],
     ],
-    '2022-06'
-  )
+    '2022-06',
+  ),
 );
 
 export const _2022_JULY = prepare(
@@ -315,8 +315,8 @@ export const _2022_JULY = prepare(
       ['藕断丝连', '丝'],
       ['张牙舞爪', '牙'],
     ],
-    '2022-07'
-  )
+    '2022-07',
+  ),
 );
 
 export const _2022_AUG = prepare(
@@ -355,8 +355,8 @@ export const _2022_AUG = prepare(
       ['鱼目混珠', '目'],
       ['八仙过海', '过'],
     ],
-    '2022-08'
-  )
+    '2022-08',
+  ),
 );
 
 export const _2022_SEP = prepare(
@@ -394,8 +394,8 @@ export const _2022_SEP = prepare(
       ['隔墙有耳', '有'],
       ['闻所未闻', '未'],
     ],
-    '2022-09'
-  )
+    '2022-09',
+  ),
 );
 
 export const _2022_OCT = prepare(
@@ -434,8 +434,8 @@ export const _2022_OCT = prepare(
       ['根深蒂固', '根'],
       ['死而后已', '已'],
     ],
-    '2022-10'
-  )
+    '2022-10',
+  ),
 );
 
 export const _2022_NOV = prepare(
@@ -473,8 +473,8 @@ export const _2022_NOV = prepare(
       ['闭月羞花', '闭'],
       ['人面兽心', '面'],
     ],
-    '2022-11'
-  )
+    '2022-11',
+  ),
 );
 
 export const _2022_DEC = prepare(
@@ -513,8 +513,8 @@ export const _2022_DEC = prepare(
       ['装疯卖傻', '装'],
       ['山高水长', '山'],
     ],
-    '2022-12'
-  )
+    '2022-12',
+  ),
 );
 
 export const _2023_JAN = prepare(
@@ -553,8 +553,8 @@ export const _2023_JAN = prepare(
       ['惟妙惟肖', '妙'],
       ['英姿飒爽', '飒'],
     ],
-    '2023-01'
-  )
+    '2023-01',
+  ),
 );
 
 export const _2023_FEB = prepare(
@@ -590,8 +590,8 @@ export const _2023_FEB = prepare(
       ['双喜临门', '喜'],
       ['滔滔不绝', '不'],
     ],
-    '2023-02'
-  )
+    '2023-02',
+  ),
 );
 
 export const answers: string[][] = [
