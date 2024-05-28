@@ -54,6 +54,13 @@ async function processScript(filePath) {
     ast: true,
   });
 
+  if (filePath.endsWith('app.ts')) {
+    code = code.replace(
+      '"use strict";',
+      '"use strict";\n\nPromise = Object.getPrototypeOf((async () => {})()).constructor;',
+    );
+  }
+
   traverse.default(ast, {
     CallExpression({ node }) {
       if (

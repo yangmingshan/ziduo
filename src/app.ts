@@ -1,7 +1,3 @@
-/* eslint-disable import/first */
-// eslint-disable-next-line no-global-assign, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-empty-function, unicorn/prefer-top-level-await
-Promise = Object.getPrototypeOf((async () => {})()).constructor;
-
 import {
   createApp,
   watch,
