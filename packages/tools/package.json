@@ -1,6 +1,7 @@
 {
   "name": "@hankit/tools",
   "version": "0.0.1",
+  "type": "module",
   "description": "Toolkits for Hanzi and Pinyin",
   "keywords": [
     "hanzi",
@@ -26,12 +27,12 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts"
 }
