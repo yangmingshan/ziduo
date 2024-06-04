@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "nav-bar": "/components/nav-bar/index",
+    "ad-banner": "/components/ad-banner/index",
     "han-play": "/components/han-play/index",
     "modals-layer": "/components/modals-layer/index"
   }
