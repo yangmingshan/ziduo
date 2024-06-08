@@ -65,7 +65,7 @@
     }
   },
   "browserslist": [
-    "iOS >= 14",
-    "Chrome >= 116"
+    "iOS >= 16",
+    "Chrome >= 63"
   ]
 }

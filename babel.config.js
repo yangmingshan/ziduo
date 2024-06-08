@@ -48,12 +48,6 @@ const config = {
         version: runtimeVersion,
       },
     ],
-    /* Wechat devtools do not support the following syntax */
-    '@babel/plugin-transform-numeric-separator',
-    '@babel/plugin-transform-optional-chaining',
-    '@babel/plugin-transform-nullish-coalescing-operator',
-    '@babel/plugin-transform-logical-assignment-operators',
-    /*******************************************************/
     'transform-inline-environment-variables',
     [
       'module-resolver',

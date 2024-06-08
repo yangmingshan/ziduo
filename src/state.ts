@@ -55,7 +55,7 @@ export const isPassed = computed(
   () =>
     meta.value.passed ??
     (tries.value.length > 0 &&
-      // eslint-disable-next-line unicorn/prefer-at -- requires safari v15.4
+      // eslint-disable-next-line unicorn/prefer-at -- not sure if android wechat supports it.
       checkPass(testAnswer(parseWord(tries.value[tries.value.length - 1])))),
 );
 export const isFailed = computed(
