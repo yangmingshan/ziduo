@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/runtime": "^7.24.7",
     "@hankit/tools": "workspace:*",
-    "@vue-mini/core": "1.0.0-rc.11",
+    "@vue-mini/core": "1.0.0-rc.12",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
