@@ -15,8 +15,8 @@ importers:
         specifier: workspace:*
         version: link:packages/tools
       '@vue-mini/core':
-        specifier: 1.0.0-rc.12
-        version: 1.0.0-rc.12
+        specifier: 1.0.0-rc.11
+        version: 1.0.0-rc.11
       seedrandom:
         specifier: ^3.0.5
         version: 3.0.5
@@ -1058,17 +1058,17 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vue-mini/core@1.0.0-rc.12':
-    resolution: {integrity: sha512-pyn0KbP88mr5ac25JO6eF+O3LqjxzBFkhNwVnn66fyHufWMgllO+++cYiHbodw6/fqVEASDViCjCPphNlQgW0Q==}
+  '@vue-mini/core@1.0.0-rc.11':
+    resolution: {integrity: sha512-H7b1SxqPAqDlodcFW8Xyor3qfnYjXY5tqe2/g/OyFbTaxqnm5UYOxDFWvDzHFHY5tifUOa1x4RD+EODmYkhnBQ==}
 
   '@vue-mini/miniprogram-api-typings@3.12.2-patch.1':
     resolution: {integrity: sha512-corB85OI65uPJyq3zHirI5P8UwgcvNRjms9uT2ZI1G5ZKzgmuHvgYtW0TaGDsJc17AWLRmcdkNO3D1YZyDWM3g==}
 
-  '@vue/reactivity@3.4.29':
-    resolution: {integrity: sha512-w8+KV+mb1a8ornnGQitnMdLfE0kXmteaxLdccm2XwdFxXst4q/Z7SEboCV5SqJNpZbKFeaRBBJBhW24aJyGINg==}
+  '@vue/reactivity@3.4.27':
+    resolution: {integrity: sha512-kK0g4NknW6JX2yySLpsm2jlunZJl2/RJGZ0H9ddHdfBVHcNzxmQ0sS0b09ipmBoQpY8JM2KmUw+a6sO8Zo+zIA==}
 
-  '@vue/shared@3.4.29':
-    resolution: {integrity: sha512-hQ2gAQcBO/CDpC82DCrinJNgOHI2v+FA7BDW4lMSPeBpQ7sRe2OLHWe5cph1s7D8DUQAwRt18dBDfJJ220APEA==}
+  '@vue/shared@3.4.27':
+    resolution: {integrity: sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -4291,18 +4291,18 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vue-mini/core@1.0.0-rc.12':
+  '@vue-mini/core@1.0.0-rc.11':
     dependencies:
       '@vue-mini/miniprogram-api-typings': 3.12.2-patch.1
-      '@vue/reactivity': 3.4.29
+      '@vue/reactivity': 3.4.27
 
   '@vue-mini/miniprogram-api-typings@3.12.2-patch.1': {}
 
-  '@vue/reactivity@3.4.29':
+  '@vue/reactivity@3.4.27':
     dependencies:
-      '@vue/shared': 3.4.29
+      '@vue/shared': 3.4.27
 
-  '@vue/shared@3.4.29': {}
+  '@vue/shared@3.4.27': {}
 
   acorn-jsx@5.3.2(acorn@8.12.0):
     dependencies:
