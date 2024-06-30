@@ -15,8 +15,8 @@ importers:
         specifier: workspace:*
         version: link:packages/tools
       '@vue-mini/core':
-        specifier: 1.0.0-rc.15
-        version: 1.0.0-rc.15
+        specifier: ^1.0.0
+        version: 1.0.0
       seedrandom:
         specifier: ^3.0.5
         version: 3.0.5
@@ -1058,8 +1058,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vue-mini/core@1.0.0-rc.15':
-    resolution: {integrity: sha512-yB2TXsMsWYh3zy7PhNGP2mrKnbRWSaAuu9aA6HQo9F4+GQUa0+gB9Y+uj1ARbPJBRq2QkDhT9IaP4Aj2xqQHDQ==}
+  '@vue-mini/core@1.0.0':
+    resolution: {integrity: sha512-uCncmSxxgSP8/Ywmr0jurlfLlB3aE+bnN1tiMhbda9Vua/XOhXqITetVrgjLKBwc/6o0bbupOJ9VLhvbTSanbQ==}
 
   '@vue-mini/miniprogram-api-typings@3.12.2-patch.1':
     resolution: {integrity: sha512-corB85OI65uPJyq3zHirI5P8UwgcvNRjms9uT2ZI1G5ZKzgmuHvgYtW0TaGDsJc17AWLRmcdkNO3D1YZyDWM3g==}
@@ -4296,7 +4296,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vue-mini/core@1.0.0-rc.15':
+  '@vue-mini/core@1.0.0':
     dependencies:
       '@vue-mini/miniprogram-api-typings': 3.12.2-patch.1
       '@vue/reactivity': 3.4.31
