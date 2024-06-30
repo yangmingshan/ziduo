@@ -8,7 +8,7 @@
 
 <!-- prettier-ignore -->
 > [!NOTE]
-> 此项目 Fork 至 [汉兜](https://github.com/antfu/handle)，是汉兜的微信小程序移植版。此小程序使用 [Vue Mini](https://github.com/vue-mini/vue-mini) 开发。
+> 此项目 Fork 至 [汉兜](https://github.com/antfu/handle)，是汉兜的微信小程序移植版。字多使用 [Vue Mini](https://github.com/vue-mini/vue-mini) 开发。
 
 ## 依赖安装
 
