@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/yangmingshan/ziduo/blob/main/media/ziduo.jpeg?raw=true" width="344">
+</p>
+
 # 字多
 
 字多猜成语，汉字 Wordle
