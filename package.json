@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.{js,cjs,ts,json,less,html,md}\"",
     "lint:script": "eslint --ext .js,.cjs,.ts .",
     "lint:style": "stylelint \"src/**/*.less\"",
-    "type": "tsc",
+    "type-check": "tsc",
     "dev": "cross-env NODE_ENV=development node build.js",
     "build": "cross-env NODE_ENV=production node build.js",
     "prepare": "husky"

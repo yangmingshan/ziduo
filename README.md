@@ -1,4 +1,10 @@
-# handle-mini
+# 字多
+
+字多猜成语，汉字 Wordle
+
+<!-- prettier-ignore -->
+> [!NOTE]
+> 此项目 Fork 至 [汉兜](https://github.com/antfu/handle)，是汉兜的微信小程序移植版。此小程序使用 [Vue Mini](https://github.com/vue-mini/vue-mini) 开发。
 
 ## 依赖安装
 
@@ -24,22 +30,20 @@ pnpm build
 pnpm format
 ```
 
-## 代码检查
+## TS 代码质量检测
 
 ```sh
 pnpm lint:script
+```
+
+## CSS 代码质量检测
+
+```sh
 pnpm lint:style
 ```
 
-## 代码检查及修复
+## 类型检测
 
 ```sh
-pnpm lint:script -- --fix
-pnpm lint:style -- --fix
-```
-
-## 类型检查
-
-```sh
-pnpm type
+pnpm type-check
 ```
