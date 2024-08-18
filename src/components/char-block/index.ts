@@ -89,6 +89,7 @@ defineComponent({
       const part = props.char?._2 ?? '';
       return (
         [
+          // eslint-disable-next-line unicorn/prefer-includes
           part.lastIndexOf('iu') > -1 ? part.lastIndexOf('iu') + 1 : -1,
           part.lastIndexOf('a'),
           part.lastIndexOf('e'),

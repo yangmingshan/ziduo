@@ -6,6 +6,7 @@ module.exports = {
   ignorePatterns: ['dist', 'coverage'],
   rules: {
     'no-console': 'error',
+    'n/file-extension-in-import': 'off',
     'unicorn/prevent-abbreviations': 'off',
     'import/extensions': ['error', 'never', { json: 'always' }],
     'import/no-duplicates': ['error', { 'prefer-inline': false }],
