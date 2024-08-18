@@ -48,7 +48,7 @@ function prepare<T>(_: number, array: T[]) {
   return array;
 }
 
-export const _PRE = prepare(1, [[]]);
+export const _PRE = prepare(1, [['时运亨通', '运']]);
 
 export const _2022_JAN = prepare(31, [
   ['路不拾遗', '遗'],
